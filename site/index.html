@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多维文明历史可视化</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <p class="eyebrow">Talk · 项目原型</p>
+        <h1>多维文明历史可视化</h1>
+      </div>
+      <div class="header-meta">
+        <span id="era-label" class="era-label">—</span>
+        <span id="year-display" class="year-display">—</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="timeline-section">
+    <div class="timeline-controls">
+      <button id="btn-prev" class="btn-icon" title="向前 50 年">◀</button>
+      <input type="range" id="year-slider" class="year-slider" min="-3100" max="500" step="50" value="-2500">
+      <button id="btn-next" class="btn-icon" title="向后 50 年">▶</button>
+    </div>
+    <div class="timeline-ticks" id="timeline-ticks"></div>
+    <p id="world-context" class="world-context"></p>
+  </section>
+
+  <section class="civ-section">
+    <div class="civ-tabs" id="civ-tabs"></div>
+    <label class="compare-toggle">
+      <input type="checkbox" id="compare-mode">
+      对比模式（并排显示两个文明）
+    </label>
+  </section>
+
+  <main class="main-grid" id="main-grid">
+    <aside class="overview-panel" id="overview-panel"></aside>
+    <div class="viz-panel">
+      <div class="radar-wrap">
+        <canvas id="radar-canvas" width="360" height="360"></canvas>
+        <p class="radar-legend">
+          <span class="dot documented"></span>有据
+          <span class="dot inferred"></span>推断
+          <span class="dot speculative"></span>猜测
+          <span class="dot absent"></span>未记录
+        </p>
+      </div>
+      <div class="dimension-grid" id="dimension-grid"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>数据为定性概括，非精确统计。详见 <a href="https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-%E5%A4%9A%E7%BB%B4%E6%96%87%E6%98%8E%E5%8E%86%E5%8F%B2%E5%8F%AF%E8%A7%86%E5%8C%96.md">项目文档</a>。</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

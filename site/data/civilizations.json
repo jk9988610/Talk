@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "title": "多维文明历史可视化",
+    "description": "按时间线浏览不同文明在九个维度上的定性快照",
+    "yearMin": -3100,
+    "yearMax": 500,
+    "yearStep": 50
+  },
+  "dimensions": [
+    { "id": "technology", "label": "科技", "short": "科技" },
+    { "id": "economy", "label": "经济", "short": "经济" },
+    { "id": "medicine", "label": "医学", "short": "医学" },
+    { "id": "humanities", "label": "人文", "short": "人文" },
+    { "id": "food", "label": "食物", "short": "食物" },
+    { "id": "history", "label": "历史自觉", "short": "历史" },
+    { "id": "geography", "label": "地理", "short": "地理" },
+    { "id": "production", "label": "生产", "short": "生产" },
+    { "id": "resources", "label": "资源", "short": "资源" }
+  ],
+  "confidenceLabels": {
+    "documented": "有据",
+    "inferred": "推断",
+    "speculative": "猜测",
+    "absent": "未记录"
+  },
+  "civilizations": [
+    {
+      "id": "egypt",
+      "name": "古埃及",
+      "region": "东北非 · 尼罗河流域",
+      "color": "#c9a227",
+      "snapshots": [
+        {
+          "year": -3100,
+          "eraLabel": "早王朝时期",
+          "worldContext": "上下埃及统一；美索不达米亚城邦文明已兴盛数百年",
+          "dimensions": {
+            "technology": { "level": 3, "summary": "青铜传入、象形文字萌芽、灌溉农业", "confidence": "documented" },
+            "economy": { "level": 3, "summary": "尼罗河农业剩余、王室与神庙控制分配", "confidence": "inferred" },
+            "medicine": { "level": 2, "summary": "草药与简单外伤处理，体系化程度低", "confidence": "speculative" },
+            "humanities": { "level": 3, "summary": "王权神化、早期宗教仪式", "confidence": "documented" },
+            "food": { "level": 3, "summary": "二粒小麦、大麦为主；啤酒已是日常饮品", "confidence": "documented" },
+            "history": { "level": 2, "summary": "王室名单与神话交织，尚无成体系史书", "confidence": "inferred" },
+            "geography": { "level": 4, "summary": "狭长河谷绿洲，东西沙漠形成天然屏障", "confidence": "documented" },
+            "production": { "level": 3, "summary": "村落农业与手工业，国家动员能力初现", "confidence": "inferred" },
+            "resources": { "level": 3, "summary": "尼罗河定期泛滥带来沃土；石料丰富，铜需进口", "confidence": "documented" }
+          }
+        },
+        {
+          "year": -2500,
+          "eraLabel": "古王国 · 金字塔时代",
+          "worldContext": "吉萨金字塔建造；苏美尔城邦与印度河文明同期",
+          "dimensions": {
+            "technology": { "level": 4, "summary": "大型石构建筑、测绘与物流组织能力突出", "confidence": "documented" },
+            "economy": { "level": 3, "summary": "神庙经济与王权再分配；对外贸易有限但存在", "confidence": "inferred" },
+            "medicine": { "level": 2, "summary": "木乃伊防腐术暗示解剖认知，日常医疗仍朴素", "confidence": "inferred" },
+            "humanities": { "level": 4, "summary": "来世观念成熟、墓葬艺术繁荣", "confidence": "documented" },
+            "food": { "level": 3, "summary": "面包、啤酒、鱼类与蔬菜构成日常饮食", "confidence": "documented" },
+            "history": { "level": 3, "summary": "王室年代记与祭司传统，历史与神话尚未分离", "confidence": "documented" },
+            "geography": { "level": 4, "summary": "统一尼罗河上下游通道，地中海与红海有接触", "confidence": "documented" },
+            "production": { "level": 4, "summary": "国家组织大规模劳役与粮食储备", "confidence": "documented" },
+            "resources": { "level": 3, "summary": "农业产出稳定；木材稀缺需进口", "confidence": "documented" }
+          }
+        },
+        {
+          "year": -1350,
+          "eraLabel": "新王国 · 阿玛纳时期",
+          "worldContext": "埃及帝国鼎盛；赫梯与亚述崛起",
+          "dimensions": {
+            "technology": { "level": 4, "summary": "战车、青铜武器、纸莎草文献普及", "confidence": "documented" },
+            "economy": { "level": 4, "summary": "帝国贡赋、黎凡特贸易路线", "confidence": "documented" },
+            "medicine": { "level": 3, "summary": "《埃伯斯纸草》等医学文献，专业分工出现", "confidence": "documented" },
+            "humanities": { "level": 4, "summary": "阿肯那顿宗教改革；艺术与诗歌繁荣", "confidence": "documented" },
+            "food": { "level": 3, "summary": "帝国范围内食材多样化", "confidence": "inferred" },
+            "history": { "level": 4, "summary": "王表与年鉴传统成熟，法老功绩铭文系统", "confidence": "documented" },
+            "geography": { "level": 5, "summary": "势力达努比亚与叙利亚-巴勒斯坦", "confidence": "documented" },
+            "production": { "level": 4, "summary": "手工业城镇、军队与官僚体系", "confidence": "documented" },
+            "resources": { "level": 4, "summary": "金矿、努比亚资源；但依赖进口木材与马匹", "confidence": "documented" }
+          }
+        }
+      ]
+    },
+    {
+      "id": "mesopotamia",
+      "name": "两河流域",
+      "region": "西亚 · 美索不达米亚",
+      "color": "#8b4513",
+      "snapshots": [
+        {
+          "year": -2500,
+          "eraLabel": "苏美尔城邦时代",
+          "worldContext": "乌尔、拉格什等城邦争霸；与古埃及同期",
+          "dimensions": {
+            "technology": { "level": 4, "summary": "楔形文字、轮子、青铜、拱券建筑萌芽", "confidence": "documented" },
+            "economy": { "level": 4, "summary": "神庙经济、度量衡、远距离贸易", "confidence": "documented" },
+            "medicine": { "level": 2, "summary": "占卜与草药并行，缺乏系统解剖", "confidence": "inferred" },
+            "humanities": { "level": 4, "summary": "《吉尔伽美什》史诗、城邦守护神体系", "confidence": "documented" },
+            "food": { "level": 3, "summary": "大麦、椰枣、鱼类；啤酒文化盛行", "confidence": "documented" },
+            "history": { "level": 3, "summary": "国王名单与神话混合，编年意识强", "confidence": "documented" },
+            "geography": { "level": 3, "summary": "两河冲积平原，无天然屏障，城邦林立", "confidence": "documented" },
+            "production": { "level": 4, "summary": "灌溉农业、陶工与金属加工分工", "confidence": "documented" },
+            "resources": { "level": 3, "summary": "沃土但缺石料与木材，依赖进口", "confidence": "documented" }
+          }
+        },
+        {
+          "year": -600,
+          "eraLabel": "新巴比伦时期",
+          "worldContext": "巴比伦重建；波斯帝国即将崛起",
+          "dimensions": {
+            "technology": { "level": 4, "summary": "天文观测、数学、琉璃砖建筑", "confidence": "documented" },
+            "economy": { "level": 4, "summary": "跨区域贸易枢纽、信贷雏形", "confidence": "documented" },
+            "medicine": { "level": 3, "summary": "诊断与处方文献增多", "confidence": "inferred" },
+            "humanities": { "level": 4, "summary": "多神信仰与犹太 exile 文化交汇", "confidence": "documented" },
+            "food": { "level": 3, "summary": "谷物、椰枣、羊肉；香料贸易", "confidence": "inferred" },
+            "history": { "level": 4, "summary": "编年史传统、对古老王表的整理", "confidence": "documented" },
+            "geography": { "level": 4, "summary": "控制两河中枢，连接埃及与伊朗高原", "confidence": "documented" },
+            "production": { "level": 4, "summary": "城市手工业与商队经济", "confidence": "documented" },
+            "resources": { "level": 3, "summary": "农业发达但生态脆弱，盐碱化隐忧", "confidence": "inferred" }
+          }
+        }
+      ]
+    },
+    {
+      "id": "china",
+      "name": "古中国",
+      "region": "东亚 · 黄河流域",
+      "color": "#b22222",
+      "snapshots": [
+        {
+          "year": -2500,
+          "eraLabel": "龙山文化晚期",
+          "worldContext": "与埃及金字塔时代大致同期；文字尚未成熟",
+          "dimensions": {
+            "technology": { "level": 3, "summary": "黑陶、可能已有早期青铜；城址出现", "confidence": "inferred" },
+            "economy": { "level": 2, "summary": "聚落农业与礼制萌芽，复杂程度低于帝国", "confidence": "speculative" },
+            "medicine": { "level": null, "summary": "", "confidence": "absent" },
+            "humanities": { "level": 2, "summary": "祖先崇拜与祭祀遗迹，礼制尚未系统化", "confidence": "inferred" },
+            "food": { "level": 3, "summary": "粟、黍为主粮；猪、狗饲养", "confidence": "documented" },
+            "history": { "level": 1, "summary": "口传为主，尚无文字史书", "confidence": "inferred" },
+            "geography": { "level": 3, "summary": "黄河台地、多元聚落并立", "confidence": "documented" },
+            "production": { "level": 3, "summary": "农业与手工业村落分工", "confidence": "inferred" },
+            "resources": { "level": 3, "summary": "黄土、黄河水；铜料来源尚待考古厘清", "confidence": "inferred" }
+          }
+        },
+        {
+          "year": -500,
+          "eraLabel": "春秋晚期",
+          "worldContext": "诸子百家酝酿；波斯帝国、希腊城邦同期",
+          "dimensions": {
+            "technology": { "level": 4, "summary": "铁器推广、青铜礼器、车战、筑城技术", "confidence": "documented" },
+            "economy": { "level": 3, "summary": "诸侯贸易、货币萌芽、井田制瓦解", "confidence": "documented" },
+            "medicine": { "level": 3, "summary": "《黄帝内经》传统形成期，针灸与草药", "confidence": "inferred" },
+            "humanities": { "level": 5, "summary": "礼乐崩坏与思想争鸣，孔子等诸子活跃", "confidence": "documented" },
+            "food": { "level": 3, "summary": "五谷、豆类、腌渍与酿酒；地域差异扩大", "confidence": "inferred" },
+            "history": { "level": 4, "summary": "《春秋》编年体史书；史官传统", "confidence": "documented" },
+            "geography": { "level": 3, "summary": "华夏核心在黄河中下游，向江淮扩展", "confidence": "documented" },
+            "production": { "level": 4, "summary": "铁农具、手工业城镇、贵族作坊", "confidence": "documented" },
+            "resources": { "level": 3, "summary": "铁矿、盐、水利；人口压力初现", "confidence": "inferred" }
+          }
+        }
+      ]
+    },
+    {
+      "id": "indus",
+      "name": "印度河文明",
+      "region": "南亚 · 印度河流域",
+      "color": "#2e8b57",
+      "snapshots": [
+        {
+          "year": -2500,
+          "eraLabel": "成熟期",
+          "worldContext": "摩亨佐-达罗与哈拉帕；与埃及、两河同期",
+          "dimensions": {
+            "technology": { "level": 4, "summary": "城市规划、排水系统、标准化砝码、未破译文字", "confidence": "documented" },
+            "economy": { "level": 3, "summary": "农业与贸易，与美索不达米亚有物品交换", "confidence": "documented" },
+            "medicine": { "level": null, "summary": "", "confidence": "absent" },
+            "humanities": { "level": 2, "summary": "印章图像宗教意味，具体信仰不明", "confidence": "speculative" },
+            "food": { "level": 3, "summary": "小麦、大麦、棉花；家畜饲养", "confidence": "documented" },
+            "history": { "level": 1, "summary": "文字未破译，自我历史叙述缺失", "confidence": "absent" },
+            "geography": { "level": 3, "summary": "印度河平原，海路可能与阿曼接触", "confidence": "documented" },
+            "production": { "level": 4, "summary": "烧砖、纺织、贝壳与宝石加工", "confidence": "documented" },
+            "resources": { "level": 3, "summary": "河流灌溉、林木；矿产利用证据有限", "confidence": "inferred" }
+          }
+        }
+      ]
+    }
+  ]
+}
