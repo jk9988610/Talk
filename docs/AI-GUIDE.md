@@ -63,7 +63,8 @@
 
 ### UI 实现须参考
 
-- [CivSlice 雷达图交互设计](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) — 雷达精简、卡片承载文本、文明互比与时代均值背景板
+- [CivSlice 雷达图交互设计](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) — 剖面雷达 UI、卡片、叠图
+- [CivSlice 对比雷达与派生指标](07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md) — 双雷达架构、七项派生指标、计算公式
 
 ### 仓库结构（预期）
 
@@ -179,7 +180,8 @@ CivSlice/
 | P1 | 完善 `china.json`：结构化 sources、evidenceTypes、controversies |
 | P2 | 从维基等素材按十维规范补充/校验快照 |
 | P3 | 增加第二国家（埃及、罗马等） |
-| P4 | 跨文明同期对比模式 |
+| P4 | 双雷达 UI：剖面/对比 Tab + stats.js 派生指标 |
+| P5 | 跨文明对比叠图 + 时代均值背景 |
 
 ---
 
@@ -192,7 +194,7 @@ CivSlice/
 [描述具体任务]
 ```
 
-### 在 CivSlice 仓库
+### 在 CivSlice 仓库（通用）
 
 ```
 请阅读 Talk 仓库以下文档（按顺序）：
@@ -204,6 +206,38 @@ CivSlice/
 [描述具体任务]
 
 遵守十维框架、科学方法原则和快照数据模型。不要修改 Talk 仓库除非明确要求。
+```
+
+### 在 CivSlice 仓库（双雷达 + UI 改版）
+
+```
+请阅读 Talk 仓库以下文档（按顺序）：
+1. https://github.com/jk9988610/Talk/blob/main/docs/AI-GUIDE.md
+2. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-CivSlice-雷达图交互设计.md
+3. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md
+4. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md
+
+然后在 CivSlice 仓库实现双雷达架构：
+
+## 必做
+1. 新建 site/js/stats.js — 按文档实现七项派生指标公式（0–100）
+2. 顶部 Tab：[ 剖面 ] [ 对比 ]
+   - 剖面：原始十维雷达 + 十维卡片（文字在卡片，雷达纯图形）
+   - 对比：七项派生指标雷达（球员卡风格）+ 指标卡片（可展开构成）
+3. 派生指标运行时计算，禁止写入 china.json
+4. absent 不参与计算；禁止 level×confidence 存储
+
+## 尽量完成
+5. 对比模式：2 文明叠图 + 灰色时代均值背景（n≥2）
+6. 剖面模式：实线（有据+推断）vs 虚线（含猜测）双轮廓可选
+7. 悬停卡片 ↔ 高亮雷达轴联动
+
+## 约束
+- 不修改 Talk 仓库
+- 公式与文档权重表一致
+- 完成后提交推送，确认 Pages 可访问
+
+请先检查 CivSlice 现状，列出文件结构，再按 P1→P2 顺序实现。
 ```
 
 ---
@@ -226,6 +260,8 @@ CivSlice/
 - 用现代国家状态反推古代各维 `level`
 - 擅自删除 `absent` 维度强行填内容
 - 把维基百科叙述当作定论写入数据
+- 将派生对比指标写入 JSON 替代十维
+- 用 `level × confidence` 作为存储字段
 
 ---
 
@@ -236,6 +272,7 @@ CivSlice/
 | 项目总览 | [07-projects/2026-08-12-多维文明历史可视化.md](07-projects/2026-08-12-多维文明历史可视化.md) |
 | 数据规范 | [07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md](07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md) |
 | 雷达 UI 设计 | [07-projects/2026-08-12-CivSlice-雷达图交互设计.md](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) |
+| 对比雷达与派生指标 | [07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md](07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md) |
 | 维基启发 | [08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) |
 | 贡献指南 | [CONTRIBUTING.md](../CONTRIBUTING.md) |
 | CivSlice 实现 | https://github.com/jk9988610/CivSlice |
