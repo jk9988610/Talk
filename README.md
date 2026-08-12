@@ -18,7 +18,7 @@
 
 完整索引见 [docs/README.md](docs/README.md)。
 
-**交互原型**：[多维文明历史可视化](site/index.html)（GitHub Pages 发布 `/site` 目录后可直接访问）
+**交互原型**：[中国历史 · 十维探索](https://jk9988610.github.io/Talk/)（GitHub Pages）
 
 ## 如何参与
 
