@@ -304,6 +304,36 @@ CivSlice/
 请先检查现状再实现。
 ```
 
+### 在 CivSlice 仓库（各国泳道时间轴）
+
+```
+请阅读 Talk 仓库以下文档（按顺序）：
+1. https://github.com/jk9988610/Talk/blob/main/docs/AI-GUIDE.md
+2. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-CivSlice-时间轴交互流程.md
+   （重点阅读「②½ 各国泳道时间轴」章节）
+
+然后在 CivSlice 仓库实现阶段内各国平行时间轴：
+
+## 必做
+1. 选中时代段后，在②级国家 Chips 下方渲染泳道区
+2. 每国一行，横轴 = 当前段 yearMin~yearMax，圆点 = 该段内 snapshots
+3. 实现 timelinesInPeriod() 过滤逻辑
+4. 点击泳道圆点 → 选中该国 + 主时间轴跳转该年 + 刷新雷达
+5. 悬停圆点显示 eraLabel + 年份
+
+## 尽量完成
+6. 中国单国模式：按 group/dynasty 拆多泳道（timelinesByDynasty）
+7. 对比模式高亮多条泳道
+8. 可选 presence 存在条（文明级 presence 字段）
+
+## 约束
+- 泳道是导航地图，主时间轴+雷达是显微镜
+- 仅显示该段内有 markers 或 presence 的国家
+- 不修改 Talk 仓库
+
+请先检查现状，列出已有三级导航完成度，再实现泳道层。
+```
+
 ---
 
 ## 文档变更时的联动
