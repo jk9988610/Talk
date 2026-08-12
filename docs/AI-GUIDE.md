@@ -28,7 +28,8 @@
 6. [CivSlice 雷达图交互设计](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) — 剖面雷达 UI
 7. [CivSlice 对比雷达与派生指标](07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md) — 双雷达与计算公式
 8. [CivSlice 时代维度模板](07-projects/2026-08-12-CivSlice-时代维度模板.md) — 分时代维度集
-9. [维基百科史料启发](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) — 素材提取
+9. [CivSlice 时间轴交互流程](07-projects/2026-08-12-CivSlice-时间轴交互流程.md) — 先选时段再选朝代/国家
+10. [维基百科史料启发](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) — 素材提取
 
 ---
 
@@ -276,6 +277,33 @@ CivSlice/
 请先检查现状，再实现。
 ```
 
+### 在 CivSlice 仓库（时间轴：先选时段再选朝代）
+
+```
+请阅读 Talk 仓库以下文档（按顺序）：
+1. https://github.com/jk9988610/Talk/blob/main/docs/AI-GUIDE.md
+2. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-CivSlice-时间轴交互流程.md
+3. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-CivSlice-时代维度模板.md
+
+然后在 CivSlice 仓库实现三级导航：
+
+## 必做
+1. ① 时代段 Tab（石器→当代），点击后收窄时间轴 yearMin/yearMax
+2. ② 根据所选时段过滤并展示有快照的朝代/国家 Chips
+3. ③ 时间轴仅在当前段内滑动；圆点仅显示当前实体本段快照
+4. 切换时代段时重置②③；加载对应 eraTemplate 维度集
+
+## 数据
+5. 快照可选字段 dynasty、group 用于②级分组
+6. meta.eraPeriods 定义各段年份范围
+
+## 约束
+- 禁止未选时段即展示全历史轴
+- 不修改 Talk 仓库
+
+请先检查现状再实现。
+```
+
 ---
 
 ## 文档变更时的联动
@@ -310,6 +338,7 @@ CivSlice/
 | 雷达 UI 设计 | [07-projects/2026-08-12-CivSlice-雷达图交互设计.md](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) |
 | 对比雷达与派生指标 | [07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md](07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md) |
 | 时代维度模板 | [07-projects/2026-08-12-CivSlice-时代维度模板.md](07-projects/2026-08-12-CivSlice-时代维度模板.md) |
+| 时间轴交互流程 | [07-projects/2026-08-12-CivSlice-时间轴交互流程.md](07-projects/2026-08-12-CivSlice-时间轴交互流程.md) |
 | 维基启发 | [08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) |
 | 贡献指南 | [CONTRIBUTING.md](../CONTRIBUTING.md) |
 | CivSlice 实现 | https://github.com/jk9988610/CivSlice |
