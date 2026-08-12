@@ -1,0 +1,34 @@
+---
+name: 站点反馈
+description: 报告文档结构、链接错误或改进建议
+title: "[反馈] "
+labels: ["meta"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: 反馈类型
+      options:
+        - 分类体系建议
+        - 链接错误或失效
+        - 模板改进
+        - 贡献流程问题
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 详细描述
+      description: 请尽量具体，附上相关文件路径或链接
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 改进建议
+      description: 如有解决方案或替代方案，请在此说明
+    validations:
+      required: false

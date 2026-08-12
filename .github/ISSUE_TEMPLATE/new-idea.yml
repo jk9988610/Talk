@@ -1,0 +1,63 @@
+---
+name: 新想法
+description: 抛出一个尚未成文的灵感或碎片思考
+title: "[想法] "
+labels: ["ideas", "discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        用于记录一闪而过的念头。若已写成完整文档，请直接发起 Pull Request。
+        参考模板：[templates/idea.md](../templates/idea.md)
+
+  - type: textarea
+    id: trigger
+    attributes:
+      label: 触发来源
+      description: 这个想法从何而来？
+      placeholder: 对话、阅读、观察…
+    validations:
+      required: true
+
+  - type: textarea
+    id: core
+    attributes:
+      label: 核心想法
+      description: 用几句话描述你的想法
+      placeholder: |
+        - 要点一
+        - 要点二
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 建议分类
+      options:
+        - 01-ideas（想法速记）
+        - 02-essays（随笔）
+        - 03-tech（技术）
+        - 04-philosophy（哲学思辨）
+        - 05-life（生活感悟）
+        - 06-reading（读书笔记）
+        - 07-projects（项目构想）
+        - 08-discussions（开放讨论）
+    validations:
+      required: true
+
+  - type: textarea
+    id: tags
+    attributes:
+      label: 标签
+      description: 用逗号分隔，如：习惯, 效率, Rust
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: willing-to-write
+    attributes:
+      label: 后续意愿
+      options:
+        - label: 我愿意将此想法扩展为完整文档并提交 PR
+        - label: 希望他人基于此想法执笔
