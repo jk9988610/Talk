@@ -18,7 +18,7 @@
 
 完整索引见 [docs/README.md](docs/README.md)。
 
-**交互原型**：[中国历史 · 十维探索](https://jk9988610.github.io/Talk/)（GitHub Pages）
+**文档门户**：[jk9988610.github.io/Talk](https://jk9988610.github.io/Talk/)（GitHub Pages 导航页）
 
 ## 如何参与
 

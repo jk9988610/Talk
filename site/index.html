@@ -3,69 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>中国历史 · 十维探索</title>
+  <title>Talk — 想法文档站</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <div>
-        <p class="eyebrow">Talk · 科学历史探索</p>
-        <h1 id="page-title">中国历史 · 十维探索</h1>
-        <p class="subtitle" id="page-subtitle"></p>
-      </div>
-      <div class="header-meta">
-        <span id="era-label" class="era-label">—</span>
-        <span id="year-display" class="year-display">—</span>
-      </div>
+  <header class="hero">
+    <p class="eyebrow">想法 · 随笔 · 讨论</p>
+    <h1>Talk</h1>
+    <p class="lead">一个用于<strong>交流想法</strong>的文档仓库。记录灵感、项目构想与开放讨论，成熟后可孵化到独立仓库继续开发。</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="https://github.com/jk9988610/Talk/tree/main/docs">浏览文档</a>
+      <a class="btn" href="https://github.com/jk9988610/Talk/blob/main/CONTRIBUTING.md">贡献指南</a>
     </div>
   </header>
 
-  <section class="timeline-section">
-    <div class="timeline-controls">
-      <button id="btn-prev" class="btn-icon" title="向前">◀</button>
-      <input type="range" id="year-slider" class="year-slider">
-      <button id="btn-next" class="btn-icon" title="向后">▶</button>
-    </div>
-    <div class="timeline-ticks" id="timeline-ticks"></div>
-    <div class="snapshot-markers" id="snapshot-markers"></div>
-    <p id="world-context" class="world-context"></p>
-  </section>
-
-  <main class="main-layout">
-    <section class="viz-section">
-      <div class="radar-panel">
-        <h2 class="panel-title">十维雷达</h2>
-        <canvas id="radar-canvas" width="380" height="380"></canvas>
-        <p class="radar-legend">
-          <span class="dot documented"></span>有据
-          <span class="dot inferred"></span>推断
-          <span class="dot speculative"></span>猜测
-          <span class="dot absent"></span>未记录
-        </p>
-      </div>
-
-      <div class="cards-panel">
-        <h2 class="panel-title">维度详情</h2>
-        <div class="dimension-grid" id="dimension-grid"></div>
-      </div>
+  <main class="container">
+    <section>
+      <h2>文档分类</h2>
+      <div class="grid" id="categories"></div>
     </section>
 
-    <aside class="sidebar">
-      <div class="info-card" id="snapshot-info"></div>
-      <div class="info-card methodology-card">
-        <h3>科学方法原则</h3>
-        <ul id="methodology-list"></ul>
-        <details class="confidence-details">
-          <summary>可信度分级说明</summary>
-          <dl id="confidence-dl"></dl>
-        </details>
-      </div>
-    </aside>
+    <section>
+      <h2>已孵化项目</h2>
+      <p class="section-desc">从本仓库构想出发、在独立仓库中继续实现的项目。</p>
+      <div class="grid projects" id="projects"></div>
+    </section>
+
+    <section>
+      <h2>如何参与</h2>
+      <ol class="steps">
+        <li>在 <code>docs/</code> 对应分类下新建 Markdown 文档</li>
+        <li>复制 <a href="https://github.com/jk9988610/Talk/tree/main/templates">templates/</a> 中的写作模板</li>
+        <li>通过 Pull Request 或 <a href="https://github.com/jk9988610/Talk/issues/new/choose">Issue</a> 参与讨论</li>
+      </ol>
+    </section>
   </main>
 
   <footer class="footer">
-    <p>等级 1–5 为文明内部相对概括，非精确统计。详见 <a href="https://github.com/jk9988610/Talk">项目仓库</a>。</p>
+    <p>
+      <a href="https://github.com/jk9988610/Talk">GitHub 仓库</a> ·
+      内容默认 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+    </p>
   </footer>
 
   <script src="app.js"></script>
