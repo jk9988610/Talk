@@ -1,45 +1,45 @@
 # GitHub Pages 发布说明
 
-本目录为「多维文明历史可视化」的静态交互原型。
+「中国历史 · 十维探索」交互原型，采用科学方法驱动的定性历史重建。
+
+## 在线访问
+
+启用 Pages 后访问：**https://jk9988610.github.io/Talk/**
 
 ## 启用步骤
 
-1. 进入仓库 **Settings → Pages**
-2. **Source** 选择 `Deploy from a branch`
-3. **Branch** 选 `main`，目录选 **`/site`**
-4. 保存后等待几分钟，访问 `https://jk9988610.github.io/Talk/`
+1. 仓库 **Settings → Pages**
+2. Source: `Deploy from a branch`
+3. Branch: `main`，目录: **`/site`**
 
 ## 本地预览
 
 ```bash
-cd site
-python3 -m http.server 8080
-# 浏览器打开 http://localhost:8080
+cd site && python3 -m http.server 8080
+# http://localhost:8080
 ```
 
-> 必须通过 HTTP 服务访问，`fetch` 无法从 `file://` 加载 JSON。
+## 十维框架
 
-## 文件结构
+| 维度 | 说明 |
+|------|------|
+| 地理气候 | 空间、气候、地缘约束 |
+| 资源能源 | 可开发的自然要素 |
+| 技术能力 | 工具、方法、知识 |
+| 生产组织 | 农业/手工业/劳动分工 |
+| 经济交换 | 贸易、货币、分配 |
+| 政治制度 | 国家形态、治理 |
+| 军事国力 | 战争能力、疆域 |
+| 社会文化 | 宗教、艺术、教育、阶层 |
+| 日常生活 | 食物、医疗、居住 |
+| 历史记忆 | 自我叙述、史书 |
 
-```
-site/
-├── index.html          # 页面入口
-├── styles.css          # 样式
-├── app.js              # 时间线、雷达图、维度卡片逻辑
-├── data/
-│   └── civilizations.json  # 文明快照数据
-└── README.md
-```
+## 科学方法
 
-## 贡献数据
+- 有据 / 推断 / 猜测 / 未记录 四级可信度
+- 禁止以今证古；无证据维度留空
+- 每条快照附证据说明与参考来源
 
-在 `data/civilizations.json` 中为文明添加 `snapshots`，每条快照包含：
+数据文件：`data/china.json`（8 个时间点：二里头 → 1950）
 
-- `year` — 快照年份（公元前为负）
-- `eraLabel` — 时代标签
-- `worldContext` — 世界背景一句
-- `dimensions` — 九维对象，每维含 `level`（1–5 或 null）、`summary`、`confidence`
-
-`confidence` 取值：`documented` | `inferred` | `speculative` | `absent`
-
-详细设计见 [项目文档](../docs/07-projects/2026-08-12-多维文明历史可视化.md)。
+详细设计：[项目文档](../docs/07-projects/2026-08-12-多维文明历史可视化.md)

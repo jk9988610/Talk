@@ -1,13 +1,11 @@
 let data = null;
-let currentYear = -2500;
-let selectedCivs = [];
-let compareMode = false;
+let currentYear = -500;
+const SNAP_TOLERANCE = 350;
 
 const $ = (sel) => document.querySelector(sel);
-const $$ = (sel) => document.querySelectorAll(sel);
 
 async function init() {
-  const res = await fetch('data/civilizations.json');
+  const res = await fetch('data/china.json');
   data = await res.json();
 
   const { yearMin, yearMax, yearStep } = data.meta;
@@ -15,19 +13,20 @@ async function init() {
   slider.min = yearMin;
   slider.max = yearMax;
   slider.step = yearStep;
-  slider.value = currentYear;
+  slider.value = currentYear = data.snapshots[Math.floor(data.snapshots.length / 2)].year;
 
-  selectedCivs = [data.civilizations[0].id, data.civilizations[1]?.id].filter(Boolean);
+  $('#page-subtitle').textContent = data.meta.subtitle;
 
   buildTimelineTicks(yearMin, yearMax);
-  buildCivTabs();
+  buildSnapshotMarkers();
+  buildMethodology();
   bindEvents();
   render();
 }
 
 function buildTimelineTicks(min, max) {
   const ticks = $('#timeline-ticks');
-  const count = 5;
+  const count = 6;
   const step = (max - min) / (count - 1);
   ticks.innerHTML = Array.from({ length: count }, (_, i) => {
     const y = Math.round(min + step * i);
@@ -35,25 +34,33 @@ function buildTimelineTicks(min, max) {
   }).join('');
 }
 
-function buildCivTabs() {
-  const container = $('#civ-tabs');
-  container.innerHTML = data.civilizations.map((civ) => `
-    <button class="civ-tab" data-id="${civ.id}" style="--civ-color:${civ.color}">
-      ${civ.name}
-    </button>
-  `).join('');
-  updateTabStyles();
+function buildSnapshotMarkers() {
+  const { yearMin, yearMax } = data.meta;
+  const range = yearMax - yearMin;
+  const container = $('#snapshot-markers');
+
+  container.innerHTML = data.snapshots.map((snap) => {
+    const pct = ((snap.year - yearMin) / range) * 100;
+    return `<button class="snap-marker" style="left:${pct}%"
+      title="${formatYear(snap.year)} · ${snap.eraLabel}"
+      data-year="${snap.year}"></button>`;
+  }).join('');
+
+  container.querySelectorAll('.snap-marker').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      currentYear = Number(btn.dataset.year);
+      $('#year-slider').value = currentYear;
+      render();
+    });
+  });
 }
 
-function updateTabStyles() {
-  $$('.civ-tab').forEach((tab) => {
-    const id = tab.dataset.id;
-    const civ = data.civilizations.find((c) => c.id === id);
-    const active = selectedCivs.includes(id);
-    tab.classList.toggle('active', active);
-    tab.style.borderColor = active ? civ.color : '';
-    tab.style.color = active ? civ.color : '';
-  });
+function buildMethodology() {
+  const { principles, confidenceLevels } = data.meta.methodology;
+  $('#methodology-list').innerHTML = principles.map((p) => `<li>${p}</li>`).join('');
+  $('#confidence-dl').innerHTML = Object.entries(confidenceLevels)
+    .map(([k, v]) => `<dt>${data.confidenceLabels[k]}</dt><dd>${v}</dd>`)
+    .join('');
 }
 
 function bindEvents() {
@@ -61,40 +68,8 @@ function bindEvents() {
     currentYear = Number(e.target.value);
     render();
   });
-
   $('#btn-prev').addEventListener('click', () => stepYear(-1));
   $('#btn-next').addEventListener('click', () => stepYear(1));
-
-  $('#compare-mode').addEventListener('change', (e) => {
-    compareMode = e.target.checked;
-    if (compareMode && selectedCivs.length < 2) {
-      const second = data.civilizations.find((c) => c.id !== selectedCivs[0]);
-      if (second) selectedCivs.push(second.id);
-    }
-    if (!compareMode) selectedCivs = [selectedCivs[0]];
-    updateTabStyles();
-    render();
-  });
-
-  $('#civ-tabs').addEventListener('click', (e) => {
-    const tab = e.target.closest('.civ-tab');
-    if (!tab) return;
-    const id = tab.dataset.id;
-
-    if (compareMode) {
-      if (selectedCivs.includes(id)) {
-        if (selectedCivs.length > 1) selectedCivs = selectedCivs.filter((x) => x !== id);
-      } else if (selectedCivs.length < 2) {
-        selectedCivs.push(id);
-      } else {
-        selectedCivs[1] = id;
-      }
-    } else {
-      selectedCivs = [id];
-    }
-    updateTabStyles();
-    render();
-  });
 }
 
 function stepYear(dir) {
@@ -110,126 +85,68 @@ function formatYear(year) {
   return `公元 ${year} 年`;
 }
 
-function findNearestSnapshot(civ, year) {
-  if (!civ.snapshots.length) return null;
-  return civ.snapshots.reduce((best, snap) =>
+function findNearestSnapshot(year) {
+  return data.snapshots.reduce((best, snap) =>
     Math.abs(snap.year - year) < Math.abs(best.year - year) ? snap : best
   );
 }
 
 function render() {
+  const snap = findNearestSnapshot(currentYear);
+  const inRange = Math.abs(snap.year - currentYear) <= SNAP_TOLERANCE;
+
   $('#year-display').textContent = formatYear(currentYear);
-
-  const primary = data.civilizations.find((c) => c.id === selectedCivs[0]);
-  const snap = primary ? findNearestSnapshot(primary, currentYear) : null;
-
-  $('#era-label').textContent = snap?.eraLabel || '该时段';
-  $('#world-context').textContent = snap?.worldContext
+  $('#era-label').textContent = inRange ? snap.eraLabel : '该时段无快照';
+  $('#world-context').textContent = inRange && snap.worldContext
     ? `世界背景：${snap.worldContext}`
-    : '该年份附近暂无世界背景记录。';
+    : `当前选择 ${formatYear(currentYear)}，最近快照为 ${formatYear(snap.year)}（${snap.eraLabel}），点击时间轴圆点可跳转。`;
 
-  const grid = $('#main-grid');
-  grid.classList.toggle('compare', compareMode);
-
-  if (compareMode) {
-    renderCompareMode();
-  } else {
-    renderSingleMode(primary, snap);
-  }
+  renderSnapshotInfo(snap, inRange);
+  renderDimensionGrid(snap, inRange);
+  drawRadar(snap, inRange, data.meta.color);
+  updateMarkerHighlight(snap);
 }
 
-function renderSingleMode(civ, snap) {
-  const hasSnap = civ && snap && Math.abs(snap.year - currentYear) <= 400;
+function updateMarkerHighlight(snap) {
+  document.querySelectorAll('.snap-marker').forEach((m) => {
+    m.classList.toggle('active', Number(m.dataset.year) === snap.year);
+  });
+}
 
-  const overviewHtml = hasSnap
-    ? `
-      <h2 style="color:${civ.color}">${civ.name}</h2>
-      <p class="overview-region">${civ.region}</p>
-      <span class="overview-era">${snap.eraLabel}</span>
-      <p class="overview-note">
-        快照年份：${formatYear(snap.year)}<br>
-        与当前选择相差 ${Math.abs(snap.year - currentYear)} 年
-      </p>
-      <p class="overview-note">
-        九维等级为 1–5 的<strong>相对概括</strong>，非精确统计。未记录维度在雷达图上留空。
-      </p>
-    `
-    : `
-      <h2>${civ?.name || '—'}</h2>
-      <p class="no-snapshot" style="margin-top:1rem;padding:1rem;">该文明在 ${formatYear(currentYear)} 附近暂无快照记录。</p>
+function renderSnapshotInfo(snap, inRange) {
+  const el = $('#snapshot-info');
+  if (!inRange) {
+    el.innerHTML = `
+      <h3>暂无精确快照</h3>
+      <p class="muted">请拖动滑块至时间轴圆点（●）附近，或点击圆点跳转至有记录的朝代。</p>
+      <p class="muted">最近记录：<strong>${snap.eraLabel}</strong>（${formatYear(snap.year)}）</p>
     `;
-
-  const vizHtml = hasSnap
-    ? `
-      <div class="radar-wrap">
-        <canvas id="radar-canvas" width="360" height="360"></canvas>
-        <p class="radar-legend">
-          <span class="dot documented"></span>有据
-          <span class="dot inferred"></span>推断
-          <span class="dot speculative"></span>猜测
-          <span class="dot absent"></span>未记录
-        </p>
-      </div>
-      <div class="dimension-grid" id="dimension-grid"></div>
-    `
-    : '<p class="no-snapshot">请选择其他年代或文明，或补充数据。</p>';
-
-  $('#main-grid').innerHTML = `
-    <aside class="overview-panel" id="overview-panel">${overviewHtml}</aside>
-    <div class="viz-panel">${vizHtml}</div>
-  `;
-
-  if (hasSnap) {
-    drawRadar(snap, civ.color);
-    renderDimensionGrid(snap, '#dimension-grid');
+    return;
   }
-}
 
-function renderCompareMode() {
-  $('#overview-panel').style.display = 'none';
+  const sources = snap.sources?.length
+    ? `<div class="sources"><strong>参考来源</strong><ul>${snap.sources.map((s) => `<li>${s}</li>`).join('')}</ul></div>`
+    : '';
 
-  const columns = selectedCivs.map((id) => {
-    const civ = data.civilizations.find((c) => c.id === id);
-    const snap = civ ? findNearestSnapshot(civ, currentYear) : null;
-    return { civ, snap };
-  });
-
-  const html = `
-    <div class="compare-columns">
-      ${columns.map(({ civ, snap }, i) => `
-        <div class="civ-column" data-idx="${i}">
-          <div class="civ-column-header" style="color:${civ?.color}">${civ?.name || '—'}</div>
-          ${!snap || Math.abs(snap.year - currentYear) > 400
-            ? '<p class="no-snapshot">该时段暂无记录</p>'
-            : `
-              <div class="radar-wrap">
-                <canvas class="radar-canvas" width="300" height="300" data-idx="${i}"></canvas>
-              </div>
-              <div class="dimension-grid dim-grid-compare" data-idx="${i}"></div>
-            `}
-        </div>
-      `).join('')}
-    </div>
+  el.innerHTML = `
+    <h3 style="color:${data.meta.color}">${data.meta.country}</h3>
+    <p class="era-badge">${snap.eraLabel}</p>
+    <p class="evidence-note"><strong>证据说明：</strong>${snap.evidenceNote}</p>
+    ${sources}
+    <p class="snap-diff muted">快照年份 ${formatYear(snap.year)}，与滑块位置相差 ${Math.abs(snap.year - currentYear)} 年</p>
   `;
-
-  $('#main-grid').innerHTML = html;
-
-  columns.forEach(({ civ, snap }, i) => {
-    if (!snap || Math.abs(snap.year - currentYear) > 400) return;
-    const canvas = $(`.radar-canvas[data-idx="${i}"]`);
-    drawRadar(snap, civ.color, canvas);
-    renderDimensionGrid(snap, `.dim-grid-compare[data-idx="${i}"]`);
-  });
 }
 
-function renderDimensionGrid(snap, selector) {
-  const grid = document.querySelector(selector);
-  if (!grid) return;
+function renderDimensionGrid(snap, inRange) {
+  const grid = $('#dimension-grid');
+  if (!inRange) {
+    grid.innerHTML = '<p class="no-data">该时段无维度记录，请跳转至有快照的年代。</p>';
+    return;
+  }
 
   grid.innerHTML = data.dimensions.map((dim) => {
     const d = snap.dimensions[dim.id] || { confidence: 'absent', summary: '', level: null };
     const conf = d.confidence || 'absent';
-    const badgeClass = `badge-${conf}`;
     const label = data.confidenceLabels[conf] || conf;
 
     if (conf === 'absent') {
@@ -237,43 +154,37 @@ function renderDimensionGrid(snap, selector) {
         <div class="dim-card confidence-absent">
           <div class="dim-header">
             <span class="dim-label">${dim.label}</span>
-            <span class="dim-badge ${badgeClass}">${label}</span>
+            <span class="dim-badge badge-absent">${label}</span>
           </div>
           <p class="dim-summary">—</p>
-        </div>
-      `;
+        </div>`;
     }
 
-    const levelBar = d.level ? `等级 ${d.level}/5` : '';
     return `
       <div class="dim-card confidence-${conf}">
         <div class="dim-header">
           <span class="dim-label">${dim.label}</span>
-          <span class="dim-badge ${badgeClass}">${label}</span>
+          <span class="dim-badge badge-${conf}">${label}</span>
         </div>
-        ${levelBar ? `<div class="dim-level">${levelBar}</div>` : ''}
+        ${d.level ? `<div class="dim-level">相对等级 ${d.level}/5</div>` : ''}
         <p class="dim-summary">${d.summary}</p>
-      </div>
-    `;
+      </div>`;
   }).join('');
 }
 
-function drawRadar(snap, color, canvasEl) {
-  const canvas = canvasEl || $('#radar-canvas');
-  if (!canvas) return;
-
+function drawRadar(snap, inRange, color) {
+  const canvas = $('#radar-canvas');
   const ctx = canvas.getContext('2d');
   const w = canvas.width;
   const h = canvas.height;
   const cx = w / 2;
   const cy = h / 2;
-  const maxR = Math.min(w, h) * 0.38;
+  const maxR = Math.min(w, h) * 0.36;
   const dims = data.dimensions;
   const n = dims.length;
 
   ctx.clearRect(0, 0, w, h);
 
-  // grid rings
   for (let ring = 1; ring <= 5; ring++) {
     ctx.beginPath();
     const r = (maxR * ring) / 5;
@@ -288,8 +199,7 @@ function drawRadar(snap, color, canvasEl) {
     ctx.stroke();
   }
 
-  // axes + labels
-  ctx.font = '11px sans-serif';
+  ctx.font = '10px sans-serif';
   ctx.fillStyle = '#9aa3b5';
   dims.forEach((dim, i) => {
     const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
@@ -301,48 +211,40 @@ function drawRadar(snap, color, canvasEl) {
     ctx.strokeStyle = '#2e3344';
     ctx.stroke();
 
-    const lx = cx + (maxR + 18) * Math.cos(angle);
-    const ly = cy + (maxR + 18) * Math.sin(angle);
+    const lx = cx + (maxR + 22) * Math.cos(angle);
+    const ly = cy + (maxR + 22) * Math.sin(angle);
     ctx.textAlign = Math.abs(Math.cos(angle)) < 0.1 ? 'center' : Math.cos(angle) > 0 ? 'left' : 'right';
     ctx.textBaseline = Math.abs(Math.sin(angle)) < 0.1 ? 'middle' : Math.sin(angle) > 0 ? 'top' : 'bottom';
     ctx.fillText(dim.short, lx, ly);
   });
 
-  // data polygon
+  if (!inRange) return;
+
   const points = dims.map((dim, i) => {
     const d = snap.dimensions[dim.id];
     const level = d && d.confidence !== 'absent' && d.level ? d.level : 0;
     const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
     const r = (maxR * level) / 5;
-    return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle), level, dim: dim.id, d };
+    return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle), level, d };
   });
 
   if (points.some((p) => p.level > 0)) {
     ctx.beginPath();
-    points.forEach((p, i) => {
-      i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
-    });
+    points.forEach((p, i) => { i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y); });
     ctx.closePath();
-    ctx.fillStyle = color + '33';
+    ctx.fillStyle = color + '30';
     ctx.fill();
     ctx.strokeStyle = color;
     ctx.lineWidth = 2;
     ctx.stroke();
   }
 
-  // vertices colored by confidence
+  const colors = { documented: '#4ade80', inferred: '#60a5fa', speculative: '#fbbf24', absent: '#4b5563' };
   points.forEach((p) => {
     if (p.level <= 0) return;
-    const conf = p.d?.confidence || 'absent';
-    const colors = {
-      documented: '#4ade80',
-      inferred: '#60a5fa',
-      speculative: '#fbbf24',
-      absent: '#4b5563',
-    };
     ctx.beginPath();
     ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
-    ctx.fillStyle = colors[conf] || colors.absent;
+    ctx.fillStyle = colors[p.d?.confidence] || colors.absent;
     ctx.fill();
   });
 }
