@@ -1,0 +1,46 @@
+---
+name: 开放讨论
+description: 发起一个命题，征集多元观点
+title: "[讨论] "
+labels: ["discussions"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        用于征集不同立场的回应。参考模板：[templates/discussion.md](../templates/discussion.md)
+
+  - type: textarea
+    id: proposition
+    attributes:
+      label: 讨论命题
+      description: 用一句话清晰陈述议题
+      placeholder: 例如：远程工作是否削弱了团队的创造力？
+    validations:
+      required: true
+
+  - type: textarea
+    id: background
+    attributes:
+      label: 背景
+      description: 为什么想讨论？常见观点有哪些？
+    validations:
+      required: false
+
+  - type: textarea
+    id: stance
+    attributes:
+      label: 你的初步立场
+      description: 若有立场请陈述；若持开放态度请说明
+    validations:
+      required: false
+
+  - type: textarea
+    id: dimensions
+    attributes:
+      label: 希望从哪些角度讨论
+      placeholder: |
+        1. 效率角度
+        2. 心理角度
+        3. …
+    validations:
+      required: false

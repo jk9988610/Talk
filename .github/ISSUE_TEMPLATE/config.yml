@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 贡献指南
+    url: https://github.com/jk9988610/Talk/blob/main/CONTRIBUTING.md
+    about: 了解如何提交文档与参与讨论
+  - name: 文档总览
+    url: https://github.com/jk9988610/Talk/blob/main/docs/README.md
+    about: 浏览分类体系与写作模板
