@@ -20,7 +20,7 @@ const projects = [
     ideaDoc: 'docs/07-projects/2026-08-12-多维文明历史可视化.md',
     repo: 'https://github.com/jk9988610/CivSlice',
     pages: 'https://jk9988610.github.io/CivSlice/',
-    status: '待创建',
+    status: '已部署',
   },
 ];
 

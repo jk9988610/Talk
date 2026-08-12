@@ -26,7 +26,7 @@
 2. **写作** — 复制 [templates/](templates/) 中的模板，在对应分类下新建文档
 3. **提交** — 发起 Pull Request，或先用 [Issue 模板](.github/ISSUE_TEMPLATE/) 抛出想法
 
-详细规范见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+详细规范见 [CONTRIBUTING.md](CONTRIBUTING.md)。AI 协作者请先读 [docs/AI-GUIDE.md](docs/AI-GUIDE.md)。
 
 ## 文档命名约定
 
