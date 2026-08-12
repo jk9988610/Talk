@@ -18,6 +18,8 @@
 
 完整索引见 [docs/README.md](docs/README.md)。
 
+**交互原型**：[多维文明历史可视化](site/index.html)（GitHub Pages 发布 `/site` 目录后可直接访问）
+
 ## 如何参与
 
 1. **阅读** — 从 [文档总览](docs/README.md) 浏览已有内容
