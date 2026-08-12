@@ -2,6 +2,10 @@
 
 本目录按主题归类所有交流文档。每篇文档建议使用 [frontmatter 元数据](../CONTRIBUTING.md#文档元数据) 标注分类、标签与状态。
 
+## AI 助手入口
+
+若在 Cursor 或其他 AI 环境中工作，请先阅读 **[AI-GUIDE.md](AI-GUIDE.md)** — 含仓库定位、CivSlice 协作规范与新对话启动模板。
+
 ## 分类体系
 
 ```

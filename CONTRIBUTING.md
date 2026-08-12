@@ -91,3 +91,7 @@ docs/02-essays/2026-08-12-关于慢思考.md
 ## 许可
 
 除非单篇文档 frontmatter 或文末另有声明，贡献内容默认以 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 许可发布。
+
+## AI 助手
+
+使用 AI 协作时，请阅读 [docs/AI-GUIDE.md](docs/AI-GUIDE.md)。
