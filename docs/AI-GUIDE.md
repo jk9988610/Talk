@@ -27,7 +27,8 @@
 5. [CivSlice 史料方法论与数据规范](07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md) — 数据模型与科学方法
 6. [CivSlice 雷达图交互设计](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) — 剖面雷达 UI
 7. [CivSlice 对比雷达与派生指标](07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md) — 双雷达与计算公式
-8. [维基百科史料启发](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) — 素材提取
+8. [CivSlice 时代维度模板](07-projects/2026-08-12-CivSlice-时代维度模板.md) — 分时代维度集
+9. [维基百科史料启发](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) — 素材提取
 
 ---
 
@@ -67,6 +68,7 @@
 
 - [CivSlice 雷达图交互设计](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) — 剖面雷达 UI、卡片、叠图
 - [CivSlice 对比雷达与派生指标](07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md) — 双雷达架构、七项派生指标、计算公式
+- [CivSlice 时代维度模板](07-projects/2026-08-12-CivSlice-时代维度模板.md) — 核心维 + 时代模块，分时期字段集
 
 ### 仓库结构（预期）
 
@@ -242,6 +244,38 @@ CivSlice/
 请先检查 CivSlice 现状，列出文件结构，再按 P1→P2 顺序实现。
 ```
 
+### 在 CivSlice 仓库（时代维度模板）
+
+```
+请阅读 Talk 仓库以下文档（按顺序）：
+1. https://github.com/jk9988610/Talk/blob/main/docs/AI-GUIDE.md
+2. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-CivSlice-时代维度模板.md
+3. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md
+4. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md
+
+然后在 CivSlice 仓库实现时代维度模板：
+
+## 必做
+1. 在 data/ 或 js/ 定义 7 套 eraTemplate（paleolithic → contemporary）
+2. 每套含 core（5 项）+ modules（4–5 项）字段定义
+3. 实现 inferTemplate(year) 自动推断模板
+4. 快照增加 eraTemplate 字段；dimensions 只填当前模板允许的 key
+5. 剖面雷达轴随模板动态生成
+
+## 尽量完成
+6. 中国快照按时代迁移至少 3 套模板（bronze / iron_imperial / contemporary）
+7. 旧十维 → 新模板映射层（兼容现有 china.json）
+8. stats.js 分时代权重计算派生指标
+9. 跨模板切换时 UI 提示「维度集已变更」
+
+## 约束
+- 同时代横向比较必须用相同 eraTemplate
+- 不修改 Talk 仓库
+- 遵守科学方法与 confidence 规范
+
+请先检查现状，再实现。
+```
+
 ---
 
 ## 文档变更时的联动
@@ -275,6 +309,7 @@ CivSlice/
 | 数据规范 | [07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md](07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md) |
 | 雷达 UI 设计 | [07-projects/2026-08-12-CivSlice-雷达图交互设计.md](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) |
 | 对比雷达与派生指标 | [07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md](07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md) |
+| 时代维度模板 | [07-projects/2026-08-12-CivSlice-时代维度模板.md](07-projects/2026-08-12-CivSlice-时代维度模板.md) |
 | 维基启发 | [08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) |
 | 贡献指南 | [CONTRIBUTING.md](../CONTRIBUTING.md) |
 | CivSlice 实现 | https://github.com/jk9988610/CivSlice |
