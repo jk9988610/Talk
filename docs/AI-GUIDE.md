@@ -61,6 +61,10 @@
 
 > 在 **CivSlice 仓库**的新对话中执行，不在 Talk 中写实现代码（除非用户明确要求同步文档）。
 
+### UI 实现须参考
+
+- [CivSlice 雷达图交互设计](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) — 雷达精简、卡片承载文本、文明互比与时代均值背景板
+
 ### 仓库结构（预期）
 
 ```
@@ -231,6 +235,7 @@ CivSlice/
 |------|------|
 | 项目总览 | [07-projects/2026-08-12-多维文明历史可视化.md](07-projects/2026-08-12-多维文明历史可视化.md) |
 | 数据规范 | [07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md](07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md) |
+| 雷达 UI 设计 | [07-projects/2026-08-12-CivSlice-雷达图交互设计.md](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) |
 | 维基启发 | [08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) |
 | 贡献指南 | [CONTRIBUTING.md](../CONTRIBUTING.md) |
 | CivSlice 实现 | https://github.com/jk9988610/CivSlice |
