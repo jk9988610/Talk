@@ -370,6 +370,36 @@ CivSlice/
 请先检查现状，再按 P1→P5 实现。
 ```
 
+### 在 CivSlice 仓库（v3 证据驱动数据 — 当前数据规范）
+
+```
+请阅读 Talk 仓库以下文档（按顺序）：
+1. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-13-CivSlice-证据驱动数据标准.md
+2. https://github.com/jk9988610/Talk/blob/main/docs/AI-GUIDE.md
+3. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-CivSlice-时代维度模板.md
+
+## 任务原则（v3）
+- 先写 sources[]，再写 aspects；禁止用 AI 通史记忆填 documented
+- 正式快照只用 documented / inferred / absent；推测进假说库
+- 不固定十维：有证据才建 aspect key，无证据显式 absent
+- level 仅在有 rubric 时填写
+- 下架或降级一切无具体 ref 的占位国家数据
+
+## 实现（若涉及代码）
+- P1: aspects + sourceRefs schema；假说库
+- P2: 剖面雷达动态轴；absent 与未检索分开展示
+- P3: china.json 试点迁移
+- P4: 无来源多国数据下架
+- P6: CI 阻断无 sourceRefs 的 documented
+
+## 约束
+- 不修改 Talk 仓库（除非同步文档）
+- 派生指标仍运行时计算
+- 比较束（原 eraTemplate）只用于对齐同时代对比，非必填表
+
+请先检查 CivSlice 数据现状，列出违规条目（无 ref、speculative、硬填维度），再按 v3 标准整改。
+```
+
 ---
 
 ## 文档变更时的联动
