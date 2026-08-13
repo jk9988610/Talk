@@ -386,16 +386,17 @@ CivSlice/
 - 下架或降级一切无具体 ref 的占位国家数据
 
 ## 实现（若涉及代码）
+- P0: 时间轴 + 泳道 + 快照卡片（来源 + aspects + absent）；**移除或隐藏雷达与 stats 公式**
 - P1: aspects + sourceRefs schema；假说库
-- P2: 剖面雷达动态轴；absent 与未检索分开展示
-- P3: china.json 试点迁移
-- P4: 无来源多国数据下架
+- P2: china.json 试点迁移
+- P3: 无来源多国数据下架
+- P4: 并排文本对照（同 aspect 多国，无雷达叠图）
 - P6: CI 阻断无 sourceRefs 的 documented
 
 ## 约束
 - 不修改 Talk 仓库（除非同步文档）
-- 派生指标仍运行时计算
-- 比较束（原 eraTemplate）只用于对齐同时代对比，非必填表
+- **Phase 0 禁止派生指标与雷达图**（见标准 §六）
+- 比较束只用于组织检索主题，非必填表
 
 请先检查 CivSlice 数据现状，列出违规条目（无 ref、speculative、硬填维度），再按 v3 标准整改。
 ```
@@ -423,7 +424,7 @@ CivSlice/
 - **为凑满雷达轴而硬填 aspect**；无证据必须 `absent`（v3）
 - 用现代国家状态反推古代各维 `level`
 - 擅自删除 `absent` 强行填内容
-- 把维基百科叙述当作定论写入数据（可作线索，须追到可核查 sources）
+- 把维基百科叙述当作定论写入数据（**可作 inferred 备用**，见 v3 §5.5）
 - 将派生对比指标写入 JSON
 - 用 `level × confidence` 作为存储字段
 - 使用「学术通史」「专题研究」等泛化 ref 而不给出具体出处（v3）
