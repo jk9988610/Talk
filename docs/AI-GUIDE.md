@@ -23,14 +23,15 @@
 
 若任务涉及 **CivSlice**，额外必读：
 
-4. [多维文明历史可视化](07-projects/2026-08-12-多维文明历史可视化.md) — 项目总览
-5. [CivSlice 史料方法论与数据规范](07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md) — 数据模型与科学方法
-6. [CivSlice 雷达图交互设计](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) — 剖面雷达 UI
-7. [CivSlice 对比雷达与派生指标](07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md) — 双雷达与计算公式
-8. [CivSlice 时代维度模板](07-projects/2026-08-12-CivSlice-时代维度模板.md) — 分时代维度集
-9. **[CivSlice 区域导航与比较选择](07-projects/2026-08-13-CivSlice-区域导航与比较选择.md)** — **v2 主交互**（区域→时段→泳道→比较勾选）
-10. [CivSlice 时间轴交互流程](07-projects/2026-08-12-CivSlice-时间轴交互流程.md) — 泳道细节（v1 参考）
-11. [维基百科史料启发](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) — 素材提取
+4. **[CivSlice 证据驱动数据标准](07-projects/2026-08-13-CivSlice-证据驱动数据标准.md)** — **v3 最高数据规范**（证据、absent、禁止推测）
+5. [多维文明历史可视化](07-projects/2026-08-12-多维文明历史可视化.md) — 项目总览
+6. [CivSlice 史料方法论与数据规范](07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md) — v2 历史参考
+7. [CivSlice 雷达图交互设计](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) — 剖面雷达 UI
+8. [CivSlice 对比雷达与派生指标](07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md) — 双雷达与计算公式
+9. [CivSlice 时代维度模板](07-projects/2026-08-12-CivSlice-时代维度模板.md) — 比较束 / aspect 建议目录
+10. **[CivSlice 区域导航与比较选择](07-projects/2026-08-13-CivSlice-区域导航与比较选择.md)** — **v2 主交互**（区域→时段→泳道→比较勾选）
+11. [CivSlice 时间轴交互流程](07-projects/2026-08-12-CivSlice-时间轴交互流程.md) — 泳道细节（v1 参考）
+12. [维基百科史料启发](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) — 素材线索（须追到原始来源）
 
 ---
 
@@ -375,7 +376,8 @@ CivSlice/
 
 | 变更内容 | 须同步更新 |
 |----------|-----------|
-| 十维框架调整 | 项目总览、数据规范、CivSlice `china.json` schema |
+| **数据规范 v3** | 证据驱动标准、AI-GUIDE 禁止事项、时代模板定位、CivSlice schema |
+| 十维 / aspect 框架调整 | 项目总览、数据规范、CivSlice 数据文件 |
 | 科学方法原则 | AI-GUIDE、数据规范、CivSlice 侧栏文案 |
 | 新孵化项目 | Talk `site/app.js` 的 projects 列表、07-projects README |
 | 维基/讨论新启发 | 08-discussions 归档 + 数据规范补充 |
@@ -386,11 +388,15 @@ CivSlice/
 
 - 在 Talk 的 `site/` 中部署 CivSlice 等产品原型
 - 将 `confidence: documented` 用于无文献/考古支撑的猜测
+- **用 AI 训练记忆或通史常识批量生成各国快照并标 documented**（v3）
+- **在正式快照 `aspects` 中写入 `speculative`**；假说只能进假说库（v3）
+- **为凑满雷达轴而硬填 aspect**；无证据必须 `absent`（v3）
 - 用现代国家状态反推古代各维 `level`
-- 擅自删除 `absent` 维度强行填内容
-- 把维基百科叙述当作定论写入数据
-- 将派生对比指标写入 JSON 替代十维
+- 擅自删除 `absent` 强行填内容
+- 把维基百科叙述当作定论写入数据（可作线索，须追到可核查 sources）
+- 将派生对比指标写入 JSON
 - 用 `level × confidence` 作为存储字段
+- 使用「学术通史」「专题研究」等泛化 ref 而不给出具体出处（v3）
 
 ---
 
@@ -398,8 +404,9 @@ CivSlice/
 
 | 文档 | 路径 |
 |------|------|
+| **证据驱动标准 v3** | [07-projects/2026-08-13-CivSlice-证据驱动数据标准.md](07-projects/2026-08-13-CivSlice-证据驱动数据标准.md) |
 | 项目总览 | [07-projects/2026-08-12-多维文明历史可视化.md](07-projects/2026-08-12-多维文明历史可视化.md) |
-| 数据规范 | [07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md](07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md) |
+| 数据规范（v2 参考） | [07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md](07-projects/2026-08-12-CivSlice-史料方法论与数据规范.md) |
 | 雷达 UI 设计 | [07-projects/2026-08-12-CivSlice-雷达图交互设计.md](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) |
 | 对比雷达与派生指标 | [07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md](07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md) |
 | 时代维度模板 | [07-projects/2026-08-12-CivSlice-时代维度模板.md](07-projects/2026-08-12-CivSlice-时代维度模板.md) |
