@@ -28,8 +28,9 @@
 6. [CivSlice 雷达图交互设计](07-projects/2026-08-12-CivSlice-雷达图交互设计.md) — 剖面雷达 UI
 7. [CivSlice 对比雷达与派生指标](07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md) — 双雷达与计算公式
 8. [CivSlice 时代维度模板](07-projects/2026-08-12-CivSlice-时代维度模板.md) — 分时代维度集
-9. [CivSlice 时间轴交互流程](07-projects/2026-08-12-CivSlice-时间轴交互流程.md) — 先选时段再选朝代/国家
-10. [维基百科史料启发](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) — 素材提取
+9. **[CivSlice 区域导航与比较选择](07-projects/2026-08-13-CivSlice-区域导航与比较选择.md)** — **v2 主交互**（区域→时段→泳道→比较勾选）
+10. [CivSlice 时间轴交互流程](07-projects/2026-08-12-CivSlice-时间轴交互流程.md) — 泳道细节（v1 参考）
+11. [维基百科史料启发](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) — 素材提取
 
 ---
 
@@ -334,6 +335,40 @@ CivSlice/
 请先检查现状，列出已有三级导航完成度，再实现泳道层。
 ```
 
+### 在 CivSlice 仓库（v2 区域导航 — 当前主方案）
+
+```
+请阅读 Talk 仓库以下文档（按顺序）：
+1. https://github.com/jk9988610/Talk/blob/main/docs/AI-GUIDE.md
+2. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-13-CivSlice-区域导航与比较选择.md
+3. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md
+4. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-12-CivSlice-时代维度模板.md
+
+然后在 CivSlice 实现 v2 五级导航：
+
+## 必做
+1. ① 七大区域 Tab：西欧、东欧、中东、东亚、南亚、北美、南美
+2. ② 时间段按 meta.regions[].periods 配置（各区域可不同）
+3. ③ 国家多选 Checkbox：选中加入泳道，取消删除泳道
+4. ④ 泳道 + 主时间轴联动（见时间轴交互流程 ②½ 章节）
+5. ⑤ 比较参与面板：泳道国家默认全选参与对比；Toggle 可单独排除
+   - swimlaneMembers ≠ comparisonActive（两层状态）
+   - 对比雷达只画 comparisonActive；剖面雷达只显示 focusCountryId
+
+## 数据
+6. civilizations[].regions[] 标注所属区域
+7. uiState: regionId, periodId, swimlaneMembers, comparisonActive, focusCountryId, focusYear
+
+## 约束
+- 切换区域重置下游全部选择
+- 从泳道移除须同步从 comparisonActive 移除
+- 新加入泳道默认加入 comparisonActive
+- 禁止全球统一时间段列表
+- 不修改 Talk 仓库
+
+请先检查现状，再按 P1→P5 实现。
+```
+
 ---
 
 ## 文档变更时的联动
@@ -369,6 +404,7 @@ CivSlice/
 | 对比雷达与派生指标 | [07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md](07-projects/2026-08-12-CivSlice-对比雷达与派生指标.md) |
 | 时代维度模板 | [07-projects/2026-08-12-CivSlice-时代维度模板.md](07-projects/2026-08-12-CivSlice-时代维度模板.md) |
 | 时间轴交互流程 | [07-projects/2026-08-12-CivSlice-时间轴交互流程.md](07-projects/2026-08-12-CivSlice-时间轴交互流程.md) |
+| **区域导航 v2** | [07-projects/2026-08-13-CivSlice-区域导航与比较选择.md](07-projects/2026-08-13-CivSlice-区域导航与比较选择.md) |
 | 维基启发 | [08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) |
 | 贡献指南 | [CONTRIBUTING.md](../CONTRIBUTING.md) |
 | CivSlice 实现 | https://github.com/jk9988610/CivSlice |
