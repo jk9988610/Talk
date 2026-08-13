@@ -347,7 +347,7 @@ CivSlice/
 然后在 CivSlice 实现 v2 五级导航：
 
 ## 必做
-1. ① 七大区域 Tab：西欧、东欧、中东、东亚、南亚、北美、南美
+1. ① 八大区域 Tab：世界、欧洲、亚洲、非洲、大洋洲、北美洲、南美洲、南极洲（自然大洲 + 世界统称，不再分西欧/东欧等亚区）
 2. ② 时间段按 meta.regions[].periods 配置（各区域可不同）
 3. ③ 国家多选 Checkbox：选中加入泳道，取消删除泳道
 4. ④ 泳道 + 主时间轴联动（见时间轴交互流程 ②½ 章节）
@@ -356,7 +356,7 @@ CivSlice/
    - 对比雷达只画 comparisonActive；剖面雷达只显示 focusCountryId
 
 ## 数据
-6. civilizations[].regions[] 标注所属区域
+6. civilizations[].regions[] 标注所属大洲 id（`europe`/`asia`/…/`world` 不参与文明标注，仅作导航 Tab）
 7. uiState: regionId, periodId, swimlaneMembers, comparisonActive, focusCountryId, focusYear
 
 ## 约束
