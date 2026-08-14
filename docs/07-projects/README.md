@@ -26,6 +26,7 @@
 - [2026-08-14 MiraSpace 项目初心与设计理念](2026-08-14-MiraSpace-项目初心与设计理念.md) — 涌现 / 观察者 / 环境迭代
 - [2026-08-14 MiraSpace 测试分层与报告规范](2026-08-14-MiraSpace-测试分层与报告规范.md) — Smoke / Acceptance
 - [2026-08-14 MiraSpace 阶段导航 UI](2026-08-14-MiraSpace-阶段导航UI.md) — **v1 后当前优先**
+- [2026-08-14 MiraSpace 性能与时间控制 UI](2026-08-14-MiraSpace-性能与时间控制UI.md) — 时间倍率、右下角控件
 - [2026-08-14 MiraSpace v1 闭合登记](2026-08-14-MiraSpace-v1-闭合登记.md)
 - [2026-08-14 MiraSpace S4→S5 门槛确认书](2026-08-14-MiraSpace-S4-S5-门槛确认书.md)
 - [2026-08-14 MiraSpace S3→S4 门槛确认书](2026-08-14-MiraSpace-S3-S4-门槛确认书.md)

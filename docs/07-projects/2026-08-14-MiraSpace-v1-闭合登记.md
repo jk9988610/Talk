@@ -34,7 +34,7 @@ author: Talk
 
 | 优先级 | 任务 | 仓库 |
 |--------|------|------|
-| **P0** | [阶段导航 UI](2026-08-14-MiraSpace-阶段导航UI.md) | MiraSpace |
+| **P0** | [阶段导航 UI](2026-08-14-MiraSpace-阶段导航UI.md) + [性能与时间控制 UI](2026-08-14-MiraSpace-性能与时间控制UI.md) | MiraSpace |
 | P1 | S2–S5 acceptance 登记 README | MiraSpace / 维护者 |
 | P2 | `lab.html` 可复制测试报告（见测试分层规范） | MiraSpace |
 
@@ -45,4 +45,5 @@ v1 **不**新增 S6 科学阶段；扩展另开 Talk 议题。
 ## 相关
 
 - [阶段导航 UI](2026-08-14-MiraSpace-阶段导航UI.md)
+- [性能与时间控制 UI](2026-08-14-MiraSpace-性能与时间控制UI.md)
 - [科学阶段路线图](2026-08-14-MiraSpace-科学阶段路线图.md)
