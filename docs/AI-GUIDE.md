@@ -44,8 +44,9 @@
 9. **[MiraSpace S3 — 个体化与原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md)** — S3 规格
 10. **[MiraSpace 测试分层与报告规范](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md)** — **AI 默认只跑 Smoke**
 11. [MiraSpace 项目初心与设计理念](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md) — 涌现 / 观察者 / 环境迭代
-12. **[MiraSpace S5 — 多细胞性](07-projects/2026-08-14-MiraSpace-S5-多细胞性.md)** — **当前实现规格**
-13. [MiraSpace S4→S5 门槛确认书](07-projects/2026-08-14-MiraSpace-S4-S5-门槛确认书.md)
+12. **[MiraSpace 阶段导航 UI](07-projects/2026-08-14-MiraSpace-阶段导航UI.md)** — **v1 后当前优先**
+13. **[MiraSpace 性能与时间控制 UI](07-projects/2026-08-14-MiraSpace-性能与时间控制UI.md)** — 时间倍率、右下角控件
+14. [MiraSpace v1 闭合登记](2026-08-14-MiraSpace-v1-闭合登记.md)
 
 ---
 
@@ -428,6 +429,7 @@ CivSlice/
 - [MiraSpace 阶段 0 — 空域、坐标与观察者](07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md) — P0 + S1 已完成
 - [MiraSpace S2 — 达尔文阈值](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) — S2 已完成
 - **[MiraSpace 阶段导航 UI](07-projects/2026-08-14-MiraSpace-阶段导航UI.md)** — v1 后优先
+- **[MiraSpace 性能与时间控制 UI](07-projects/2026-08-14-MiraSpace-性能与时间控制UI.md)** — 时间倍率、右下角控件
 - [MiraSpace v1 闭合登记](2026-08-14-MiraSpace-v1-闭合登记.md)
 - [MiraSpace S5 — 多细胞性](07-projects/2026-08-14-MiraSpace-S5-多细胞性.md) — 已完成
 - [MiraSpace S4 验收与 S4→S5 门槛](07-projects/2026-08-14-MiraSpace-S4-验收与S4-S5门槛.md)
@@ -445,7 +447,7 @@ CivSlice/
 | **S4** | 整合细胞单元 | chemoton（**已实现**，PR #7） |
 | **S5** | 多细胞性 | colony（见 S5 规格） |
 
-**当前实现**：v1（P0→S5）已在 MiraSpace 完成；**v1 后优先** [阶段导航 UI](2026-08-14-MiraSpace-阶段导航UI.md)。不新增 S6 科学阶段。
+**当前实现**：v1（P0→S5）已在 MiraSpace 完成；**v1 后优先** [阶段导航 UI](2026-08-14-MiraSpace-阶段导航UI.md) + [性能与时间控制 UI](2026-08-14-MiraSpace-性能与时间控制UI.md)。不新增 S6 科学阶段。
 
 ### 测试与时间（强制执行）
 
@@ -565,18 +567,20 @@ MiraSpace/
 请先检查 MiraSpace 现状，再按 R0→R1→R2 实现。
 ```
 
-### 在 MiraSpace 仓库（v1 后 — 阶段导航 UI，当前优先）
+### 在 MiraSpace 仓库（v1 后 — 阶段导航 + 时间控制，当前优先）
 
 ```
 请阅读 Talk：
 1. docs/07-projects/2026-08-14-MiraSpace-阶段导航UI.md
-2. docs/07-projects/2026-08-14-MiraSpace-v1-闭合登记.md
-3. docs/07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md
+2. docs/07-projects/2026-08-14-MiraSpace-性能与时间控制UI.md
+3. docs/07-projects/2026-08-14-MiraSpace-v1-闭合登记.md
+4. docs/07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md
 
-实现单页 5 Tab 导航（N0→N1）：
-- stage-nav.js：原始汤|复制子|原细胞|化学子|多细胞
-- 映射 stage0/2/3/4/5-default；保留 seed；URL sync；切换 reset 世界
-- HUD 指标组按阶段显隐；禁止多 html、禁止阶段间状态继承
+实现（推荐同一 PR）：
+- stage-nav.js：原始汤|复制子|原细胞|化学子|多细胞；seed + URL sync；切换 reset
+- sim-clock.js：tick/render 解耦；timeScale 1/5/20；headless 固定 ×1
+- control-panel.js：右下角 ⏸/▶、倍率、网格、场、重置
+- HUD 指标只读；操作按钮迁出 HUD
 - smoke-test.mjs 仍 exit 0
 ```
 
@@ -640,6 +644,7 @@ MiraSpace/
 | **MiraSpace 测试分层** | [07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md) |
 | **MiraSpace 初心** | [07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md) |
 | **MiraSpace 阶段导航 UI** | [07-projects/2026-08-14-MiraSpace-阶段导航UI.md](07-projects/2026-08-14-MiraSpace-阶段导航UI.md) |
+| **MiraSpace 性能与时间控制** | [07-projects/2026-08-14-MiraSpace-性能与时间控制UI.md](07-projects/2026-08-14-MiraSpace-性能与时间控制UI.md) |
 | **MiraSpace v1 闭合** | [07-projects/2026-08-14-MiraSpace-v1-闭合登记.md](07-projects/2026-08-14-MiraSpace-v1-闭合登记.md) |
 | **MiraSpace S2 验收** | [07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md](07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md) |
 | **MiraSpace S2 规格** | [07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) |
