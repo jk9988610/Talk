@@ -16,7 +16,7 @@ const projects = [
   {
     name: 'MiraSpace',
     subtitle: '米拉空间 · 数字生命演化',
-    desc: '涌现式数字生物模拟：从原始汤到 RNA、DNA、细胞与多细胞。观察者漫游 Canvas 空域。',
+    desc: '涌现式数字生物模拟：按科学阶段 P0→S1→…→S5（非 RNA/DNA 线性），从远离平衡态底物到多细胞。',
     ideaDoc: 'docs/07-projects/2026-08-14-米拉空间数字生命演化.md',
     repo: 'https://github.com/jk9988610/MiraSpace',
     pages: 'https://jk9988610.github.io/MiraSpace/',
