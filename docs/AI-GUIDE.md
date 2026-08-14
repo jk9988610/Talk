@@ -565,34 +565,19 @@ MiraSpace/
 请先检查 MiraSpace 现状，再按 R0→R1→R2 实现。
 ```
 
-### 在 MiraSpace 仓库（S4 化学子 — 当前主任务）
+### 在 MiraSpace 仓库（v1 后 — 阶段导航 UI，当前优先）
 
 ```
-请阅读 Talk 仓库以下文档（按顺序）：
-1. https://github.com/jk9988610/Talk/blob/main/docs/AI-GUIDE.md
-2. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-S3-S4-门槛确认书.md
-3. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md
-4. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md
+请阅读 Talk：
+1. docs/07-projects/2026-08-14-MiraSpace-阶段导航UI.md
+2. docs/07-projects/2026-08-14-MiraSpace-v1-闭合登记.md
+3. docs/07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md
 
-然后在 MiraSpace 实现 S4（C0→C1→C2）：
-
-## 必做（C0）
-1. site/js/chemoton.js — 代谢/遗传/膜三子耦合、chemotonFitness
-2. vesicle.js + replicator.js — 分裂需 fitness；storageMode 涌现
-3. stage4-default.json
-
-## 必做（C1）
-4. S4 指标 HUD：chemotonCoherence、lineagePersistence、storageFidelity
-
-## 必做（C2）
-5. scripts/s4-headless-test.mjs；smoke-test 增加 stage4
-6. PR 只附 smoke 报告；禁止对话中跑 acceptance
-
-## 约束
-- 禁止 spawn chemoton、禁止 DNA/RNA 命名、禁止 S5 多细胞
-- s1–s3 smoke 回归 exit 0
-
-请先检查现状，再按 C0→C1→C2 实现。
+实现单页 5 Tab 导航（N0→N1）：
+- stage-nav.js：原始汤|复制子|原细胞|化学子|多细胞
+- 映射 stage0/2/3/4/5-default；保留 seed；URL sync；切换 reset 世界
+- HUD 指标组按阶段显隐；禁止多 html、禁止阶段间状态继承
+- smoke-test.mjs 仍 exit 0
 ```
 
 ### 在 MiraSpace 仓库（改代码时的测试纪律）
