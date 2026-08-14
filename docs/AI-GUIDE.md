@@ -427,8 +427,9 @@ CivSlice/
 - **[MiraSpace 科学阶段路线图](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md)** — P0 + S1–S5 门槛（**最高阶段规范**）
 - [MiraSpace 阶段 0 — 空域、坐标与观察者](07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md) — P0 + S1 已完成
 - [MiraSpace S2 — 达尔文阈值](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) — S2 已完成
-- **[MiraSpace S5 — 多细胞性](07-projects/2026-08-14-MiraSpace-S5-多细胞性.md)** — **当前实现规格**
-- [MiraSpace S4→S5 门槛确认书](07-projects/2026-08-14-MiraSpace-S4-S5-门槛确认书.md)
+- **[MiraSpace 阶段导航 UI](07-projects/2026-08-14-MiraSpace-阶段导航UI.md)** — v1 后优先
+- [MiraSpace v1 闭合登记](2026-08-14-MiraSpace-v1-闭合登记.md)
+- [MiraSpace S5 — 多细胞性](07-projects/2026-08-14-MiraSpace-S5-多细胞性.md) — 已完成
 - [MiraSpace S4 验收与 S4→S5 门槛](07-projects/2026-08-14-MiraSpace-S4-验收与S4-S5门槛.md)
 - [MiraSpace S4 — 整合细胞单元](07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md) — 已完成
 - [MiraSpace S3 — 个体化与原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md) — S3 已完成
@@ -444,7 +445,7 @@ CivSlice/
 | **S4** | 整合细胞单元 | chemoton（**已实现**，PR #7） |
 | **S5** | 多细胞性 | colony（见 S5 规格） |
 
-**当前实现**：S4 已合并 main；**下一步 S5 colony**（Talk 规格已发布）。v1 路线图在 S5 Smoke 通过后闭合。
+**当前实现**：v1（P0→S5）已在 MiraSpace 完成；**v1 后优先** [阶段导航 UI](2026-08-14-MiraSpace-阶段导航UI.md)。不新增 S6 科学阶段。
 
 ### 测试与时间（强制执行）
 
@@ -653,8 +654,8 @@ MiraSpace/
 | **MiraSpace 科学阶段路线图** | [07-projects/2026-08-14-MiraSpace-科学阶段路线图.md](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md) |
 | **MiraSpace 测试分层** | [07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md) |
 | **MiraSpace 初心** | [07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md) |
-| **MiraSpace S5 规格** | [07-projects/2026-08-14-MiraSpace-S5-多细胞性.md](07-projects/2026-08-14-MiraSpace-S5-多细胞性.md) |
-| **MiraSpace S4→S5 确认** | [07-projects/2026-08-14-MiraSpace-S4-S5-门槛确认书.md](07-projects/2026-08-14-MiraSpace-S4-S5-门槛确认书.md) |
+| **MiraSpace 阶段导航 UI** | [07-projects/2026-08-14-MiraSpace-阶段导航UI.md](07-projects/2026-08-14-MiraSpace-阶段导航UI.md) |
+| **MiraSpace v1 闭合** | [07-projects/2026-08-14-MiraSpace-v1-闭合登记.md](07-projects/2026-08-14-MiraSpace-v1-闭合登记.md) |
 | **MiraSpace S2 验收** | [07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md](07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md) |
 | **MiraSpace S2 规格** | [07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) |
 | MiraSpace 实现 | https://github.com/jk9988610/MiraSpace |

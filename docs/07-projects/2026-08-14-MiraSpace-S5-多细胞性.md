@@ -10,8 +10,8 @@ author:
 
 # MiraSpace S5 — 多细胞性
 
-> **科学阶段 S5**：在 S4 chemoton 之上，使分裂后的 vesicle **持久 adhesion**，形成 **colony（ colony / 多细胞体）**；适应度在**群体个体**层面计算；可选细胞间资源交换与行为分工——**项目 v1 最后一阶**。  
-> **父文档**：[米拉空间数字生命演化](2026-08-14-米拉空间数字生命演化.md) · [科学阶段路线图](2026-08-14-MiraSpace-科学阶段路线图.md) · [S4 规格](2026-08-14-MiraSpace-S4-整合细胞单元.md) · [S4 验收与 S4→S5 门槛](2026-08-14-MiraSpace-S4-验收与S4-S5门槛.md)
+> **科学阶段 S5**：在 S4 chemoton 之上……**项目 v1 最后一阶**。  
+> **实现状态**：MiraSpace [PR #8](https://github.com/jk9988610/MiraSpace/pull/8) — Smoke s1–s5 exit 0；见 [v1 闭合登记](2026-08-14-MiraSpace-v1-闭合登记.md)。
 
 ## 本阶段要做什么（一句话）
 
