@@ -44,6 +44,8 @@
 9. **[MiraSpace S3 — 个体化与原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md)** — S3 规格
 10. **[MiraSpace 测试分层与报告规范](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md)** — **AI 默认只跑 Smoke**
 11. [MiraSpace 项目初心与设计理念](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md) — 涌现 / 观察者 / 环境迭代
+12. **[MiraSpace S4 — 整合细胞单元](07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md)** — **当前实现规格**（chemoton）
+13. [MiraSpace S3→S4 门槛确认书](07-projects/2026-08-14-MiraSpace-S3-S4-门槛确认书.md) — 开 S4 正式确认
 
 ---
 
@@ -425,10 +427,9 @@ CivSlice/
 - **[MiraSpace 科学阶段路线图](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md)** — P0 + S1–S5 门槛（**最高阶段规范**）
 - [MiraSpace 阶段 0 — 空域、坐标与观察者](07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md) — P0 + S1 已完成
 - [MiraSpace S2 — 达尔文阈值](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) — S2 已完成
-- [MiraSpace S3 — 个体化与原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md) — S3 已完成（见 S3 验收）
-- **[MiraSpace 测试分层与报告规范](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md)** — Smoke / Acceptance
-- [MiraSpace S3 验收与 S3→S4 门槛](07-projects/2026-08-14-MiraSpace-S3-验收与S3-S4门槛.md)
-- [MiraSpace 项目初心与设计理念](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md)
+- **[MiraSpace S4 — 整合细胞单元](07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md)** — **当前实现规格**
+- [MiraSpace S3→S4 门槛确认书](07-projects/2026-08-14-MiraSpace-S3-S4-门槛确认书.md)
+- [MiraSpace S3 — 个体化与原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md) — S3 已完成
 
 ### 科学阶段（定稿，勿擅自跳关）
 
@@ -437,11 +438,11 @@ CivSlice/
 | **P0** | 观察基底 | 工程：canvas、坐标、pan、tick |
 | **S1** | 远离平衡态与前生物复杂性 | 场+粒子（**已实现**） |
 | **S2** | 达尔文阈值 | 复制子（**已实现**） |
-| **S3** | 个体化与原细胞 | vesicle（**已实现**，PR #5） |
-| **S4** | 整合细胞单元 | 化学子耦合（**Talk 待写规格**） |
+| **S3** | 个体化与原细胞 | vesicle（**已实现**） |
+| **S4** | 整合细胞单元 | chemoton 耦合（见 S4 规格） |
 | **S5** | 多细胞性 | 待规格 |
 
-**当前实现**：S3 开发门已在 MiraSpace 完成；**Talk 下一步写 S4 规格**；MiraSpace 在 S4 文档合并前不实现 chemoton。
+**当前实现**：S3 已完成；**下一步 S4 chemoton**（Talk 已确认门槛并发布规格）。S5 待 S4 开发门后写规格。
 
 ### 测试与时间（强制执行）
 
@@ -476,15 +477,19 @@ MiraSpace/
 │   │   ├── particles.js
 │   │   ├── replicator.js    # S2
 │   │   ├── vesicle.js       # S3
+│   │   ├── chemoton.js      # S4
 │   │   └── metrics.js
 │   └── data/presets/
 │       ├── stage0-default.json
 │       ├── stage2-default.json
-│       └── stage3-default.json
+│       ├── stage3-default.json
+│       └── stage4-default.json
 ├── scripts/
+│   ├── smoke-test.mjs
 │   ├── s1-headless-test.mjs
 │   ├── s2-headless-test.mjs
-│   └── s3-headless-test.mjs
+│   ├── s3-headless-test.mjs
+│   └── s4-headless-test.mjs
 ├── .github/workflows/pages.yml
 └── README.md
 ```
@@ -562,36 +567,34 @@ MiraSpace/
 请先检查 MiraSpace 现状，再按 R0→R1→R2 实现。
 ```
 
-### 在 MiraSpace 仓库（S3 个体化 — 当前主任务）
+### 在 MiraSpace 仓库（S4 化学子 — 当前主任务）
 
 ```
 请阅读 Talk 仓库以下文档（按顺序）：
 1. https://github.com/jk9988610/Talk/blob/main/docs/AI-GUIDE.md
-2. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-科学阶段路线图.md
-3. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md
-4. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md
+2. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-S3-S4-门槛确认书.md
+3. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md
+4. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md
 
-然后在 MiraSpace 实现 S3（M0→M1→M2）：
+然后在 MiraSpace 实现 S4（C0→C1→C2）：
 
-## 必做（M0）
-1. site/js/vesicle.js — 成核、生长、strand 吞入、interior 注册
-2. stage3-default.json（extends stage2）
-3. 膜渲染 + world tick 集成
+## 必做（C0）
+1. site/js/chemoton.js — 代谢/遗传/膜三子耦合、chemotonFitness
+2. vesicle.js + replicator.js — 分裂需 fitness；storageMode 涌现
+3. stage4-default.json
 
-## 必做（M1）
-4. 分裂 / lysis；膜 permeability
-5. S3 指标 HUD：encapsulationGain、parasiteLoad、fissionEvents
+## 必做（C1）
+4. S4 指标 HUD：chemotonCoherence、lineagePersistence、storageFidelity
 
-## 必做（M2）
-6. scripts/s3-headless-test.mjs（seed 42/7/99 × 600 sim s）
-7. s1 + s2 headless 仍 exit 0
+## 必做（C2）
+5. scripts/s4-headless-test.mjs；smoke-test 增加 stage4
+6. PR 只附 smoke 报告；禁止对话中跑 acceptance
 
 ## 约束
-- 禁止脚本 spawn vesicle、禁止关闭裸 strand
-- 不实现 S4 化学子 / 多细胞
-- 不修改 Talk 仓库
+- 禁止 spawn chemoton、禁止 DNA/RNA 命名、禁止 S5 多细胞
+- s1–s3 smoke 回归 exit 0
 
-请先检查现状，再按 M0→M1→M2 实现。
+请先检查现状，再按 C0→C1→C2 实现。
 ```
 
 ### 在 MiraSpace 仓库（改代码时的测试纪律）
@@ -653,7 +656,8 @@ MiraSpace/
 | **MiraSpace 科学阶段路线图** | [07-projects/2026-08-14-MiraSpace-科学阶段路线图.md](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md) |
 | **MiraSpace 测试分层** | [07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md) |
 | **MiraSpace 初心** | [07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md) |
-| **MiraSpace S3 验收** | [07-projects/2026-08-14-MiraSpace-S3-验收与S3-S4门槛.md](07-projects/2026-08-14-MiraSpace-S3-验收与S3-S4门槛.md) |
+| **MiraSpace S4 规格** | [07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md](07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md) |
+| **MiraSpace S3→S4 确认** | [07-projects/2026-08-14-MiraSpace-S3-S4-门槛确认书.md](07-projects/2026-08-14-MiraSpace-S3-S4-门槛确认书.md) |
 | **MiraSpace S2 验收** | [07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md](07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md) |
 | **MiraSpace S2 规格** | [07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) |
 | MiraSpace 实现 | https://github.com/jk9988610/MiraSpace |

@@ -25,7 +25,8 @@
 - [2026-08-14 MiraSpace 科学阶段路线图](2026-08-14-MiraSpace-科学阶段路线图.md) — P0 + S1–S5
 - [2026-08-14 MiraSpace 项目初心与设计理念](2026-08-14-MiraSpace-项目初心与设计理念.md) — 涌现 / 观察者 / 环境迭代
 - [2026-08-14 MiraSpace 测试分层与报告规范](2026-08-14-MiraSpace-测试分层与报告规范.md) — Smoke / Acceptance
-- [2026-08-14 MiraSpace S3 验收与 S3→S4 门槛](2026-08-14-MiraSpace-S3-验收与S3-S4门槛.md) — **S3 已完成**
+- [2026-08-14 MiraSpace S4 — 整合细胞单元](2026-08-14-MiraSpace-S4-整合细胞单元.md) — **当前聚焦** chemoton
+- [2026-08-14 MiraSpace S3→S4 门槛确认书](2026-08-14-MiraSpace-S3-S4-门槛确认书.md)
 - [2026-08-14 MiraSpace S3 — 个体化与原细胞](2026-08-14-MiraSpace-S3-个体化与原细胞.md) — S3 规格
 - [2026-08-14 MiraSpace S2 验收与 S2→S3 门槛](2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md)
 - [2026-08-14 MiraSpace S2 — 达尔文阈值](2026-08-14-MiraSpace-S2-达尔文阈值.md)
