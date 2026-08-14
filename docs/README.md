@@ -61,5 +61,5 @@ docs/
 - [MiraSpace 科学阶段路线图](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md) — P0 + S1–S5 科学阶段（2026-08-14）
 - [MiraSpace 初心与设计理念](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md)（2026-08-14）
 - [MiraSpace 测试分层规范](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md)（2026-08-14）
-- [MiraSpace S4 化学子规格](07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md)（2026-08-14）
+- [MiraSpace S4 验收](07-projects/2026-08-14-MiraSpace-S4-验收与S4-S5门槛.md)（2026-08-14）
 - [MiraSpace S3→S4 门槛确认](07-projects/2026-08-14-MiraSpace-S3-S4-门槛确认书.md)（2026-08-14）

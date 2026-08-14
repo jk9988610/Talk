@@ -271,7 +271,7 @@ Gánti **化学子（chemoton）** 三子系统：
 | S4 | [S4 整合细胞单元](2026-08-14-MiraSpace-S4-整合细胞单元.md) | chemoton, s4-headless |
 | S5 | 待撰写 | adhesion, signaling, multicellular metrics |
 
-**当前聚焦**：MiraSpace 实现 **S4 chemoton**（[S4 规格](2026-08-14-MiraSpace-S4-整合细胞单元.md)）；门槛见 [确认书](2026-08-14-MiraSpace-S3-S4-门槛确认书.md)。
+**当前聚焦**：Talk 撰写 **S5 多细胞性**；S4 见 [验收](2026-08-14-MiraSpace-S4-验收与S4-S5门槛.md)（PR #7 待合并）。
 
 ---
 
