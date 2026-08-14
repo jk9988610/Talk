@@ -271,7 +271,7 @@ Gánti **化学子（chemoton）** 三子系统：
 | S4 | 待撰写 | chemoton coupling, lineage |
 | S5 | 待撰写 | adhesion, signaling, multicellular metrics |
 
-**当前聚焦**：MiraSpace 实现 **S3**（[S3 规格](2026-08-14-MiraSpace-S3-个体化与原细胞.md)）。S2 验收见 [S2 验收与 S2→S3 门槛](2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md)。S4 规格待 S3 headless 验证后再写。
+**当前聚焦**：Talk 撰写 **S4**；MiraSpace 并行 **Smoke 测试套件**（见 [测试分层规范](2026-08-14-MiraSpace-测试分层与报告规范.md)）。S3 已实现 — [验收](2026-08-14-MiraSpace-S3-验收与S3-S4门槛.md)。
 
 ---
 
