@@ -29,7 +29,9 @@ author: Talk
 | 裸 strand 保留；无 S5 | ✅ |
 | Acceptance 全量 | 待维护者 `--acceptance` |
 
-**预览**（PR #7 合并后）：`https://jk9988610.github.io/MiraSpace/?seed=42&preset=stage4-default`
+**预览**：`https://jk9988610.github.io/MiraSpace/?seed=42&preset=stage4-default` ✅ PR #7 已合并 main。
+
+**Talk 确认 S5**：见 [S4→S5 门槛确认书](2026-08-14-MiraSpace-S4-S5-门槛确认书.md)。
 
 ---
 
@@ -60,16 +62,15 @@ node scripts/s4-headless-test.mjs --acceptance   # 维护者 / CI，非 AI 默�
 
 ---
 
-## S5 开发门（预告）
+## S5 开发门
 
-Talk 将撰写 **S5 多细胞性** 规格（adhesion、分工、发育式模式）。  
-MiraSpace 在 Talk S5 文档合并 **前** 不实现多细胞模块。
+**已确认** — 见 [S4→S5 门槛确认书](2026-08-14-MiraSpace-S4-S5-门槛确认书.md) + [S5 多细胞性](2026-08-14-MiraSpace-S5-多细胞性.md)。
 
 | S5 开写条件 | 状态 |
 |-------------|------|
-| S4 PR #7 合并 main | 待合并 |
+| S4 PR #7 合并 main | ✅ |
 | S4 Smoke exit 0 | ✅ |
-| Talk S5 规格 | Talk 下一步 |
+| Talk S5 规格 | **本 PR 发布** |
 
 ---
 
@@ -77,10 +78,8 @@ MiraSpace 在 Talk S5 文档合并 **前** 不实现多细胞模块。
 
 | 优先级 | 任务 | 仓库 |
 |--------|------|------|
-| P0 | 合并 [MiraSpace PR #7](https://github.com/jk9988610/MiraSpace/pull/7) | MiraSpace |
-| P1 | `s4-headless-test.mjs --acceptance` + README 表 | MiraSpace |
-| P1 | S2/S3 结案 acceptance（若尚未跑） | MiraSpace |
-| P0 | **S5 多细胞性** 详细规格 | Talk |
+| P0 | ~~合并 PR #7~~ | ✅ |
+| P0 | **S5 多细胞性** 实现 | MiraSpace（规格已发布） |
 
 ---
 

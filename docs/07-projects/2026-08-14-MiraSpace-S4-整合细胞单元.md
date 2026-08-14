@@ -11,7 +11,7 @@ author:
 # MiraSpace S4 — 整合细胞单元（化学子）
 
 > **科学阶段 S4**：在 S3 vesicle 之上，将 **代谢子 + 遗传子 + 膜子** 耦为共享适应度的 **chemoton（化学子）** 单元——分裂成功须三者协同自维持；**不**实现多细胞（S5）、**不**单独设 DNA 阶段。  
-> **实现状态**：MiraSpace [PR #7](https://github.com/jk9988610/MiraSpace/pull/7) 开发门已完成 — 见 [S4 验收与 S4→S5 门槛](2026-08-14-MiraSpace-S4-验收与S4-S5门槛.md)。
+> **实现状态**：已合并 main（PR #7）— 见 [S4 验收](2026-08-14-MiraSpace-S4-验收与S4-S5门槛.md)。
 
 ## 本阶段要做什么（一句话）
 
