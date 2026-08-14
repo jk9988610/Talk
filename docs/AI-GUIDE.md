@@ -41,7 +41,9 @@
 6. **[MiraSpace 阶段 0 — 空域、坐标与观察者](07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md)** — P0 + S1 实现规格
 7. **[MiraSpace S2 — 达尔文阈值](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md)** — S2 复制子规格
 8. **[MiraSpace S2 验收与 S2→S3 门槛](07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md)** — S2 结案与开 S3 判定
-9. **[MiraSpace S3 — 个体化与原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md)** — **当前实现规格**
+9. **[MiraSpace S3 — 个体化与原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md)** — S3 规格
+10. **[MiraSpace 测试分层与报告规范](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md)** — **AI 默认只跑 Smoke**
+11. [MiraSpace 项目初心与设计理念](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md) — 涌现 / 观察者 / 环境迭代
 
 ---
 
@@ -423,23 +425,31 @@ CivSlice/
 - **[MiraSpace 科学阶段路线图](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md)** — P0 + S1–S5 门槛（**最高阶段规范**）
 - [MiraSpace 阶段 0 — 空域、坐标与观察者](07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md) — P0 + S1 已完成
 - [MiraSpace S2 — 达尔文阈值](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) — S2 已完成
-- **[MiraSpace S3 — 个体化与原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md)** — **当前实现规格**
-- [MiraSpace S2 验收与 S2→S3 门槛](07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md)
+- [MiraSpace S3 — 个体化与原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md) — S3 已完成（见 S3 验收）
+- **[MiraSpace 测试分层与报告规范](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md)** — Smoke / Acceptance
+- [MiraSpace S3 验收与 S3→S4 门槛](07-projects/2026-08-14-MiraSpace-S3-验收与S3-S4门槛.md)
+- [MiraSpace 项目初心与设计理念](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md)
 
 ### 科学阶段（定稿，勿擅自跳关）
 
 | 编号 | 名称 | 说明 |
 |------|------|------|
 | **P0** | 观察基底 | 工程：canvas、坐标、pan、tick |
-| **S1** | 远离平衡态与前生物复杂性 | 场+粒子、自催化；**无可遗传信息** |
-| **S2** | 达尔文阈值 | 通用复制子（**已实现**） |
-| **S3** | 个体化与原细胞 | vesicle、compartment、分裂（见 S3 规格） |
-| **S4** | 整合细胞单元 | 化学子耦合（待规格） |
-| **S5** | 多细胞性 | 持久绑定、分工（待规格） |
+| **S1** | 远离平衡态与前生物复杂性 | 场+粒子（**已实现**） |
+| **S2** | 达尔文阈值 | 复制子（**已实现**） |
+| **S3** | 个体化与原细胞 | vesicle（**已实现**，PR #5） |
+| **S4** | 整合细胞单元 | 化学子耦合（**Talk 待写规格**） |
+| **S5** | 多细胞性 | 待规格 |
 
-**禁止**按「RNA 阶段 → DNA 阶段 → 细胞阶段」排期。详见科学阶段路线图 §为何不采用分子线性计划。
+**当前实现**：S3 开发门已在 MiraSpace 完成；**Talk 下一步写 S4 规格**；MiraSpace 在 S4 文档合并前不实现 chemoton。
 
-**当前实现**：S2 已在 MiraSpace 完成；**下一步实现 S3**（见 S3 规格）。S4+ 须等 Talk 规格。
+### 测试与时间（强制执行）
+
+见 **[测试分层与报告规范](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md)**：
+
+- AI 改代码后 **只跑 Smoke**（`smoke-test.mjs` 或等价），贴 ≤20 行报告摘要
+- **禁止**在对话中默认跑 `--acceptance`（600 s × 三 seed）
+- Acceptance 由维护者 / CI nightly / `lab.html` 执行；用户粘贴报告后再分析
 
 ### 核心原则（强制执行）
 
@@ -449,6 +459,7 @@ CivSlice/
 4. **环境驱动选择** — 适应度来自模拟交互，不是作者硬编码
 5. **观察者默认** — P0 起仅单指平移；不默认上帝模式
 6. **阈值外置** — 指标门槛放 `data/presets/*.json`，不散落 magic number
+7. **测试省时** — 默认 Smoke；Acceptance 不阻塞 AI 回合（见测试分层规范）
 
 ### 仓库结构（预期）
 
@@ -583,6 +594,16 @@ MiraSpace/
 请先检查现状，再按 M0→M1→M2 实现。
 ```
 
+### 在 MiraSpace 仓库（改代码时的测试纪律）
+
+```
+改代码后 ONLY:
+  node scripts/smoke-test.mjs
+禁止在对话中默认跑 s*-headless-test.mjs --acceptance（600s×三seed）
+若用户粘贴 Test Report，根据报告改代码，勿要求用户等 AI 长跑
+详见 Talk: docs/07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md
+```
+
 ---
 
 ## 文档变更时的联动
@@ -610,7 +631,8 @@ MiraSpace/
 - 把维基百科叙述当作定论写入数据（**可作 inferred 备用**，见 v3 §5.5）
 - 将派生对比指标写入 JSON
 - 用 `level × confidence` 作为存储字段
-- **在 MiraSpace 用脚本伪造涌现、跳过 P0/S1 直接实现 S2 复制子、或按 RNA→DNA→细胞 分子线性排期**（见科学阶段路线图）
+- **在 MiraSpace 对话中默认跑 acceptance 全量**（见测试分层规范）
+- **在 MiraSpace 用脚本伪造涌现、跳过阶段直接实现复制子/膜、或按 RNA→DNA→细胞 分子线性排期**
 
 ## 相关文档索引
 
@@ -629,7 +651,9 @@ MiraSpace/
 | CivSlice 实现 | https://github.com/jk9988610/CivSlice |
 | **MiraSpace 项目总览** | [07-projects/2026-08-14-米拉空间数字生命演化.md](07-projects/2026-08-14-米拉空间数字生命演化.md) |
 | **MiraSpace 科学阶段路线图** | [07-projects/2026-08-14-MiraSpace-科学阶段路线图.md](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md) |
-| **MiraSpace S3 规格** | [07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md) |
+| **MiraSpace 测试分层** | [07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md) |
+| **MiraSpace 初心** | [07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md) |
+| **MiraSpace S3 验收** | [07-projects/2026-08-14-MiraSpace-S3-验收与S3-S4门槛.md](07-projects/2026-08-14-MiraSpace-S3-验收与S3-S4门槛.md) |
 | **MiraSpace S2 验收** | [07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md](07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md) |
 | **MiraSpace S2 规格** | [07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) |
 | MiraSpace 实现 | https://github.com/jk9988610/MiraSpace |
