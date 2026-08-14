@@ -59,4 +59,4 @@ docs/
 
 - [米拉空间数字生命演化](07-projects/2026-08-14-米拉空间数字生命演化.md) — MiraSpace 项目总览（2026-08-14）
 - [MiraSpace 科学阶段路线图](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md) — P0 + S1–S5 科学阶段（2026-08-14）
-- [MiraSpace 阶段 0 规划](07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md) — P0 + S1 实现规格（2026-08-14）
+- [MiraSpace S2 达尔文阈值](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) — 复制子与 S2 指标（2026-08-14）

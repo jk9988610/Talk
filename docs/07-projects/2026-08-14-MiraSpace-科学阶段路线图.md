@@ -266,12 +266,12 @@ Gánti **化学子（chemoton）** 三子系统：
 | 科学阶段 | Talk 文档状态 | MiraSpace 模块（预期） |
 |----------|---------------|------------------------|
 | P0 + S1 起步 | [阶段 0 规格](2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md) | camera, world, fields, particles, metrics |
-| S2 | 待撰写 | polymer / replicator, population, heritability metrics |
+| S2 | [S2 达尔文阈值](2026-08-14-MiraSpace-S2-达尔文阈值.md) | replicator, S2 metrics, s2-headless |
 | S3 | 待撰写 | membrane, compartment, fission |
 | S4 | 待撰写 | chemoton coupling, lineage |
 | S5 | 待撰写 | adhesion, signaling, multicellular metrics |
 
-**当前聚焦**：P0 工程完成 + S1 底物与指标可测量。S2 规格须在 S1 长跑验证后再写细表。
+**当前聚焦**：MiraSpace 实现 **S2**（[S2 规格](2026-08-14-MiraSpace-S2-达尔文阈值.md)）。S3 规格待 S2 headless 验证后再写。
 
 ---
 
