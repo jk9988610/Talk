@@ -268,10 +268,10 @@ Gánti **化学子（chemoton）** 三子系统：
 | P0 + S1 起步 | [阶段 0 规格](2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md) | camera, world, fields, particles, metrics |
 | S2 | [S2 达尔文阈值](2026-08-14-MiraSpace-S2-达尔文阈值.md) | replicator, S2 metrics, s2-headless |
 | S3 | [S3 个体化与原细胞](2026-08-14-MiraSpace-S3-个体化与原细胞.md) | vesicle, compartment, s3-headless |
-| S4 | 待撰写 | chemoton coupling, lineage |
+| S4 | [S4 整合细胞单元](2026-08-14-MiraSpace-S4-整合细胞单元.md) | chemoton, s4-headless |
 | S5 | 待撰写 | adhesion, signaling, multicellular metrics |
 
-**当前聚焦**：Talk 撰写 **S4**；MiraSpace 并行 **Smoke 测试套件**（见 [测试分层规范](2026-08-14-MiraSpace-测试分层与报告规范.md)）。S3 已实现 — [验收](2026-08-14-MiraSpace-S3-验收与S3-S4门槛.md)。
+**当前聚焦**：MiraSpace 实现 **S4 chemoton**（[S4 规格](2026-08-14-MiraSpace-S4-整合细胞单元.md)）；门槛见 [确认书](2026-08-14-MiraSpace-S3-S4-门槛确认书.md)。
 
 ---
 

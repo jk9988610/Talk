@@ -27,7 +27,9 @@ author:
 | `s1` / `s2` headless 回归 exit 0 | ✅ |
 | 无脚本 spawn vesicle；裸 strand 保留 | ✅ |
 
-**预览**：`https://jk9988610.github.io/MiraSpace/?seed=42&preset=stage3-default`（合并 MiraSpace PR #5 后生效）
+**预览**：`https://jk9988610.github.io/MiraSpace/?seed=42&preset=stage3-default`
+
+**Talk 确认**：S3→S4 开发门 — 见 **[门槛确认书](2026-08-14-MiraSpace-S3-S4-门槛确认书.md)**（2026-08-14 起可开 S4）。
 
 ---
 
@@ -59,15 +61,15 @@ author:
 | S2 结案 acceptance | MiraSpace | P1 |
 | S3 结案 acceptance + README 表 | MiraSpace | P1 |
 | `smoke-test.mjs` + 可复制报告 | MiraSpace | P0（减 AI 等待） |
-| **S4 整合细胞单元** 详细规格 | Talk | **P0** |
+| **S4 整合细胞单元** 详细规格 | Talk | **已发布** — [S4 规格](2026-08-14-MiraSpace-S4-整合细胞单元.md) |
 | S5 概要 | Talk | P2 |
 
 ---
 
-## S4 开发门（预告）
+## S4 开发门
 
-Talk 将撰写 S4 规格：**化学子耦合**（代谢子 + 遗传子 + 膜子共享适应度、自维持）。  
-MiraSpace 在 Talk S4 文档合并 **前** 不实现 chemoton 耦合逻辑。
+**已确认** — 见 [S3→S4 门槛确认书](2026-08-14-MiraSpace-S3-S4-门槛确认书.md) + [S4 整合细胞单元](2026-08-14-MiraSpace-S4-整合细胞单元.md)。  
+MiraSpace 在 Talk 合并 S4 规格后实现 `chemoton.js`（C0→C2）。
 
 ---
 
