@@ -14,6 +14,15 @@ const categories = [
 
 const projects = [
   {
+    name: 'MiraSpace',
+    subtitle: '米拉空间 · 数字生命演化',
+    desc: '涌现式数字生物模拟：从原始汤到 RNA、DNA、细胞与多细胞。观察者漫游 Canvas 空域。',
+    ideaDoc: 'docs/07-projects/2026-08-14-米拉空间数字生命演化.md',
+    repo: 'https://github.com/jk9988610/MiraSpace',
+    pages: 'https://jk9988610.github.io/MiraSpace/',
+    status: '规划中',
+  },
+  {
     name: 'CivSlice',
     subtitle: '文明切片 · 十维历史可视化',
     desc: '科学方法驱动的文明历史多维探索，含时间线交互原型。从本仓库项目构想孵化。',
