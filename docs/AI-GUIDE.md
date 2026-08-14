@@ -427,8 +427,9 @@ CivSlice/
 - **[MiraSpace 科学阶段路线图](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md)** — P0 + S1–S5 门槛（**最高阶段规范**）
 - [MiraSpace 阶段 0 — 空域、坐标与观察者](07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md) — P0 + S1 已完成
 - [MiraSpace S2 — 达尔文阈值](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) — S2 已完成
-- **[MiraSpace S5 — 多细胞性](07-projects/2026-08-14-MiraSpace-S5-多细胞性.md)** — **当前实现规格**
-- [MiraSpace S4→S5 门槛确认书](07-projects/2026-08-14-MiraSpace-S4-S5-门槛确认书.md)
+- **[MiraSpace 阶段导航 UI](07-projects/2026-08-14-MiraSpace-阶段导航UI.md)** — v1 后优先
+- [MiraSpace v1 闭合登记](2026-08-14-MiraSpace-v1-闭合登记.md)
+- [MiraSpace S5 — 多细胞性](07-projects/2026-08-14-MiraSpace-S5-多细胞性.md) — 已完成
 - [MiraSpace S4 验收与 S4→S5 门槛](07-projects/2026-08-14-MiraSpace-S4-验收与S4-S5门槛.md)
 - [MiraSpace S4 — 整合细胞单元](07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md) — 已完成
 - [MiraSpace S3 — 个体化与原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md) — S3 已完成
@@ -444,7 +445,7 @@ CivSlice/
 | **S4** | 整合细胞单元 | chemoton（**已实现**，PR #7） |
 | **S5** | 多细胞性 | colony（见 S5 规格） |
 
-**当前实现**：S4 已合并 main；**下一步 S5 colony**（Talk 规格已发布）。v1 路线图在 S5 Smoke 通过后闭合。
+**当前实现**：v1（P0→S5）已在 MiraSpace 完成；**v1 后优先** [阶段导航 UI](2026-08-14-MiraSpace-阶段导航UI.md)。不新增 S6 科学阶段。
 
 ### 测试与时间（强制执行）
 
@@ -564,34 +565,19 @@ MiraSpace/
 请先检查 MiraSpace 现状，再按 R0→R1→R2 实现。
 ```
 
-### 在 MiraSpace 仓库（S4 化学子 — 当前主任务）
+### 在 MiraSpace 仓库（v1 后 — 阶段导航 UI，当前优先）
 
 ```
-请阅读 Talk 仓库以下文档（按顺序）：
-1. https://github.com/jk9988610/Talk/blob/main/docs/AI-GUIDE.md
-2. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-S3-S4-门槛确认书.md
-3. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md
-4. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md
+请阅读 Talk：
+1. docs/07-projects/2026-08-14-MiraSpace-阶段导航UI.md
+2. docs/07-projects/2026-08-14-MiraSpace-v1-闭合登记.md
+3. docs/07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md
 
-然后在 MiraSpace 实现 S4（C0→C1→C2）：
-
-## 必做（C0）
-1. site/js/chemoton.js — 代谢/遗传/膜三子耦合、chemotonFitness
-2. vesicle.js + replicator.js — 分裂需 fitness；storageMode 涌现
-3. stage4-default.json
-
-## 必做（C1）
-4. S4 指标 HUD：chemotonCoherence、lineagePersistence、storageFidelity
-
-## 必做（C2）
-5. scripts/s4-headless-test.mjs；smoke-test 增加 stage4
-6. PR 只附 smoke 报告；禁止对话中跑 acceptance
-
-## 约束
-- 禁止 spawn chemoton、禁止 DNA/RNA 命名、禁止 S5 多细胞
-- s1–s3 smoke 回归 exit 0
-
-请先检查现状，再按 C0→C1→C2 实现。
+实现单页 5 Tab 导航（N0→N1）：
+- stage-nav.js：原始汤|复制子|原细胞|化学子|多细胞
+- 映射 stage0/2/3/4/5-default；保留 seed；URL sync；切换 reset 世界
+- HUD 指标组按阶段显隐；禁止多 html、禁止阶段间状态继承
+- smoke-test.mjs 仍 exit 0
 ```
 
 ### 在 MiraSpace 仓库（改代码时的测试纪律）
@@ -653,8 +639,8 @@ MiraSpace/
 | **MiraSpace 科学阶段路线图** | [07-projects/2026-08-14-MiraSpace-科学阶段路线图.md](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md) |
 | **MiraSpace 测试分层** | [07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md) |
 | **MiraSpace 初心** | [07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md) |
-| **MiraSpace S5 规格** | [07-projects/2026-08-14-MiraSpace-S5-多细胞性.md](07-projects/2026-08-14-MiraSpace-S5-多细胞性.md) |
-| **MiraSpace S4→S5 确认** | [07-projects/2026-08-14-MiraSpace-S4-S5-门槛确认书.md](07-projects/2026-08-14-MiraSpace-S4-S5-门槛确认书.md) |
+| **MiraSpace 阶段导航 UI** | [07-projects/2026-08-14-MiraSpace-阶段导航UI.md](07-projects/2026-08-14-MiraSpace-阶段导航UI.md) |
+| **MiraSpace v1 闭合** | [07-projects/2026-08-14-MiraSpace-v1-闭合登记.md](07-projects/2026-08-14-MiraSpace-v1-闭合登记.md) |
 | **MiraSpace S2 验收** | [07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md](07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md) |
 | **MiraSpace S2 规格** | [07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) |
 | MiraSpace 实现 | https://github.com/jk9988610/MiraSpace |
