@@ -44,8 +44,8 @@
 9. **[MiraSpace S3 — 个体化与原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md)** — S3 规格
 10. **[MiraSpace 测试分层与报告规范](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md)** — **AI 默认只跑 Smoke**
 11. [MiraSpace 项目初心与设计理念](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md) — 涌现 / 观察者 / 环境迭代
-12. **[MiraSpace S4 — 整合细胞单元](07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md)** — S4 chemoton 规格
-13. [MiraSpace S4 验收与 S4→S5 门槛](07-projects/2026-08-14-MiraSpace-S4-验收与S4-S5门槛.md) — **S4 完成登记 / S5 开写条件**
+12. **[MiraSpace S5 — 多细胞性](07-projects/2026-08-14-MiraSpace-S5-多细胞性.md)** — **当前实现规格**
+13. [MiraSpace S4→S5 门槛确认书](07-projects/2026-08-14-MiraSpace-S4-S5-门槛确认书.md)
 
 ---
 
@@ -427,8 +427,10 @@ CivSlice/
 - **[MiraSpace 科学阶段路线图](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md)** — P0 + S1–S5 门槛（**最高阶段规范**）
 - [MiraSpace 阶段 0 — 空域、坐标与观察者](07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md) — P0 + S1 已完成
 - [MiraSpace S2 — 达尔文阈值](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) — S2 已完成
-- **[MiraSpace S4 — 整合细胞单元](07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md)** — S4 已完成（PR #7）
+- **[MiraSpace S5 — 多细胞性](07-projects/2026-08-14-MiraSpace-S5-多细胞性.md)** — **当前实现规格**
+- [MiraSpace S4→S5 门槛确认书](07-projects/2026-08-14-MiraSpace-S4-S5-门槛确认书.md)
 - [MiraSpace S4 验收与 S4→S5 门槛](07-projects/2026-08-14-MiraSpace-S4-验收与S4-S5门槛.md)
+- [MiraSpace S4 — 整合细胞单元](07-projects/2026-08-14-MiraSpace-S4-整合细胞单元.md) — 已完成
 - [MiraSpace S3 — 个体化与原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md) — S3 已完成
 
 ### 科学阶段（定稿，勿擅自跳关）
@@ -440,9 +442,9 @@ CivSlice/
 | **S2** | 达尔文阈值 | 复制子（**已实现**） |
 | **S3** | 个体化与原细胞 | vesicle（**已实现**） |
 | **S4** | 整合细胞单元 | chemoton（**已实现**，PR #7） |
-| **S5** | 多细胞性 | Talk 待写规格 |
+| **S5** | 多细胞性 | colony（见 S5 规格） |
 
-**当前实现**：S4 开发门已在 MiraSpace 完成（PR #7）；**Talk 下一步写 S5**；Acceptance 交维护者。
+**当前实现**：S4 已合并 main；**下一步 S5 colony**（Talk 规格已发布）。v1 路线图在 S5 Smoke 通过后闭合。
 
 ### 测试与时间（强制执行）
 
@@ -478,18 +480,13 @@ MiraSpace/
 │   │   ├── replicator.js    # S2
 │   │   ├── vesicle.js       # S3
 │   │   ├── chemoton.js      # S4
+│   │   ├── colony.js        # S5
 │   │   └── metrics.js
 │   └── data/presets/
-│       ├── stage0-default.json
-│       ├── stage2-default.json
-│       ├── stage3-default.json
-│       └── stage4-default.json
+│       └── … stage5-default.json
 ├── scripts/
 │   ├── smoke-test.mjs
-│   ├── s1-headless-test.mjs
-│   ├── s2-headless-test.mjs
-│   ├── s3-headless-test.mjs
-│   └── s4-headless-test.mjs
+│   └── s5-headless-test.mjs
 ├── .github/workflows/pages.yml
 └── README.md
 ```
@@ -656,7 +653,8 @@ MiraSpace/
 | **MiraSpace 科学阶段路线图** | [07-projects/2026-08-14-MiraSpace-科学阶段路线图.md](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md) |
 | **MiraSpace 测试分层** | [07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md](07-projects/2026-08-14-MiraSpace-测试分层与报告规范.md) |
 | **MiraSpace 初心** | [07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md) |
-| **MiraSpace S4 验收** | [07-projects/2026-08-14-MiraSpace-S4-验收与S4-S5门槛.md](07-projects/2026-08-14-MiraSpace-S4-验收与S4-S5门槛.md) |
+| **MiraSpace S5 规格** | [07-projects/2026-08-14-MiraSpace-S5-多细胞性.md](07-projects/2026-08-14-MiraSpace-S5-多细胞性.md) |
+| **MiraSpace S4→S5 确认** | [07-projects/2026-08-14-MiraSpace-S4-S5-门槛确认书.md](07-projects/2026-08-14-MiraSpace-S4-S5-门槛确认书.md) |
 | **MiraSpace S2 验收** | [07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md](07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md) |
 | **MiraSpace S2 规格** | [07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) |
 | MiraSpace 实现 | https://github.com/jk9988610/MiraSpace |
