@@ -8,8 +8,9 @@
 |------|------|--------|----------|
 | **Talk**（本仓库） | 想法文档仓库 | 记录构想、讨论、方法论、写作 | 不维护产品代码、不部署交互原型 |
 | **[CivSlice](https://github.com/jk9988610/CivSlice)** | 孵化实现仓库 | 十维历史可视化站点与数据 | 不回写构想讨论到实现层 unless 用户要求 |
+| **[MiraSpace](https://github.com/jk9988610/MiraSpace)** | 孵化实现仓库 | 米拉空间数字生命 Canvas 模拟 | 不回写构想讨论到实现层 unless 用户要求 |
 
-**原则**：Talk 写「为什么、是什么、怎么做」；CivSlice 写「做出来」。
+**原则**：Talk 写「为什么、是什么、怎么做」；CivSlice / MiraSpace 写「做出来」。
 
 ---
 
@@ -32,6 +33,12 @@
 10. **[CivSlice 区域导航与比较选择](07-projects/2026-08-13-CivSlice-区域导航与比较选择.md)** — **v2 主交互**（区域→时段→泳道→比较勾选）
 11. [CivSlice 时间轴交互流程](07-projects/2026-08-12-CivSlice-时间轴交互流程.md) — 泳道细节（v1 参考）
 12. [维基百科史料启发](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) — 素材线索（须追到原始来源）
+
+若任务涉及 **MiraSpace**，额外必读：
+
+4. **[米拉空间数字生命演化](07-projects/2026-08-14-米拉空间数字生命演化.md)** — 项目总览与世界观
+5. **[MiraSpace 科学阶段路线图](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md)** — **阶段划分依据**（P0 + S1–S5，勿用 RNA→DNA→细胞 线性计划）
+6. **[MiraSpace 阶段 0 — 空域、坐标与观察者](07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md)** — **当前实现规格**（P0 + S1 起步）
 
 ---
 
@@ -57,7 +64,7 @@
 
 ### Git 规范
 
-- 分支名：`cursor/<描述>-5709`
+- 分支名：`cursor/<描述>-82fd`
 - 完成后提交、推送、创建 PR 合并至 `main`
 - Talk 的 Pages（`site/`）仅作**文档导航门户**，不部署产品原型
 
@@ -403,6 +410,103 @@ CivSlice/
 
 ---
 
+## MiraSpace 仓库 AI 任务规范
+
+> 在 **MiraSpace 仓库**的新对话中执行，不在 Talk 中写模拟代码（除非用户明确要求同步文档）。
+
+### 须参考
+
+- [米拉空间数字生命演化](07-projects/2026-08-14-米拉空间数字生命演化.md) — 世界观
+- **[MiraSpace 科学阶段路线图](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md)** — P0 + S1–S5 门槛（**最高阶段规范**）
+- [MiraSpace 阶段 0 — 空域、坐标与观察者](07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md) — 当前实现里程碑（P0 + S1）
+
+### 科学阶段（定稿，勿擅自跳关）
+
+| 编号 | 名称 | 说明 |
+|------|------|------|
+| **P0** | 观察基底 | 工程：canvas、坐标、pan、tick |
+| **S1** | 远离平衡态与前生物复杂性 | 场+粒子、自催化；**无可遗传信息** |
+| **S2** | 达尔文阈值 | 通用复制子 + 种群选择（待 Talk 出规格） |
+| **S3** | 个体化与原细胞 | 膜边界、分裂（待规格） |
+| **S4** | 整合细胞单元 | 化学子耦合；DNA 式存储若涌现属本阶段，非独立阶段 |
+| **S5** | 多细胞性 | 持久绑定、分工（待规格） |
+
+**禁止**按「RNA 阶段 → DNA 阶段 → 细胞阶段」排期。详见科学阶段路线图 §为何不采用分子线性计划。
+
+**当前仅实现 P0 + S1 起步**（阶段 0 文档）；S2+ 须等 Talk 规格后再开发。
+
+### 核心原则（强制执行）
+
+1. **涌现优先** — 禁止脚本生成里程碑实体（如「到时间就 spawn 复制子/细胞」）
+2. **功能先于名称** — 实现遗传、边界、耦合，不实现「RNA/DNA 类」标签
+3. **模仿而非仿真** — 参照地球生命**功能角色**，不必真实分子动力学
+4. **环境驱动选择** — 适应度来自模拟交互，不是作者硬编码
+5. **观察者默认** — P0 起仅单指平移；不默认上帝模式
+6. **阈值外置** — 指标门槛放 `data/presets/*.json`，不散落 magic number
+
+### 仓库结构（预期）
+
+```
+MiraSpace/
+├── site/
+│   ├── index.html
+│   ├── styles.css
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── camera.js
+│   │   ├── world.js
+│   │   ├── fields.js
+│   │   ├── particles.js
+│   │   └── metrics.js
+│   └── data/presets/
+│       └── stage0-default.json
+├── .github/workflows/pages.yml
+└── README.md
+```
+
+### MiraSpace 任务优先级（P0 + S1 起步）
+
+| 优先级 | 任务 |
+|--------|------|
+| P0 | 全屏 canvas、横屏提示、世界坐标系、单指 pan、固定 tick |
+| P1 | energy/waste 场、S1 粒子底物、S1 涌现指标 HUD |
+| P2 | 指标曲线、URL seed、性能裁剪 |
+
+### 在 MiraSpace 仓库（P0 + S1 MVP）
+
+```
+请阅读 Talk 仓库以下文档（按顺序）：
+1. https://github.com/jk9988610/Talk/blob/main/docs/AI-GUIDE.md
+2. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-米拉空间数字生命演化.md
+3. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-科学阶段路线图.md
+4. https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md
+
+然后在 MiraSpace 仓库实现 P0 + S1 起步：
+
+## 必做（P0 观察基底）
+1. site/ 静态结构 + GitHub Pages workflow
+2. camera.js — 世界↔屏幕变换，单指 pan，Y 轴数学惯例
+3. world.js — 4096×2048 wrap 世界，30Hz tick，暂停
+4. 横屏主界面 + 竖屏提示 overlay
+
+## 必做（P1 S1 前生物底物）
+5. fields.js — energy / waste 扩散场 + 热力图
+6. particles.js — monomer / catalyst / dimer，代谢与 wrap（无模板复制）
+7. metrics.js — clusterIndex、autocatalyticScore、negentropyFlux
+8. data/presets/stage0-default.json
+
+## 约束
+- 禁止可遗传复制子、膜个体、假涌现
+- 禁止按 RNA/DNA/细胞 分子阶段排期
+- Vanilla JS + Canvas 2D，零构建优先
+- 不修改 Talk 仓库
+- 先 P0 合再 P1
+
+请先检查 MiraSpace 现状，列出文件结构，再按 P0→P1 实现。
+```
+
+---
+
 ## 文档变更时的联动
 
 | 变更内容 | 须同步更新 |
@@ -411,13 +515,14 @@ CivSlice/
 | 十维 / aspect 框架调整 | 项目总览、数据规范、CivSlice 数据文件 |
 | 科学方法原则 | AI-GUIDE、数据规范、CivSlice 侧栏文案 |
 | 新孵化项目 | Talk `site/app.js` 的 projects 列表、07-projects README |
+| MiraSpace 阶段规格 | 项目总览、AI-GUIDE 阶段表、MiraSpace preset JSON |
 | 维基/讨论新启发 | 08-discussions 归档 + 数据规范补充 |
 
 ---
 
 ## 禁止事项
 
-- 在 Talk 的 `site/` 中部署 CivSlice 等产品原型
+- 在 Talk 的 `site/` 中部署 CivSlice / MiraSpace 等产品原型
 - 将 `confidence: documented` 用于无文献/考古支撑的猜测
 - **用 AI 训练记忆或通史常识批量生成各国快照并标 documented**（v3）
 - **在正式快照 `aspects` 中写入 `speculative`**；假说只能进假说库（v3）
@@ -427,9 +532,7 @@ CivSlice/
 - 把维基百科叙述当作定论写入数据（**可作 inferred 备用**，见 v3 §5.5）
 - 将派生对比指标写入 JSON
 - 用 `level × confidence` 作为存储字段
-- 使用「学术通史」「专题研究」等泛化 ref 而不给出具体出处（v3）
-
----
+- **在 MiraSpace 用脚本伪造涌现、跳过 P0/S1 直接实现 S2 复制子、或按 RNA→DNA→细胞 分子线性排期**（见科学阶段路线图）
 
 ## 相关文档索引
 
@@ -446,3 +549,7 @@ CivSlice/
 | 维基启发 | [08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md](08-discussions/2026-08-12-维基百科中国历史对CivSlice的启发.md) |
 | 贡献指南 | [CONTRIBUTING.md](../CONTRIBUTING.md) |
 | CivSlice 实现 | https://github.com/jk9988610/CivSlice |
+| **MiraSpace 项目总览** | [07-projects/2026-08-14-米拉空间数字生命演化.md](07-projects/2026-08-14-米拉空间数字生命演化.md) |
+| **MiraSpace 科学阶段路线图** | [07-projects/2026-08-14-MiraSpace-科学阶段路线图.md](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md) |
+| **MiraSpace 阶段 0（P0+S1）** | [07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md](07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md) |
+| MiraSpace 实现 | https://github.com/jk9988610/MiraSpace |

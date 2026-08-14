@@ -4,7 +4,7 @@
 
 ## AI 助手入口
 
-若在 Cursor 或其他 AI 环境中工作，请先阅读 **[AI-GUIDE.md](AI-GUIDE.md)** — 含仓库定位、CivSlice 协作规范与新对话启动模板。
+若在 Cursor 或其他 AI 环境中工作，请先阅读 **[AI-GUIDE.md](AI-GUIDE.md)** — 含仓库定位、CivSlice / MiraSpace 协作规范与新对话启动模板。
 
 ## 分类体系
 
@@ -57,4 +57,6 @@ docs/
 
 > 在此手动维护最近发布的文档链接，或依赖 Git 历史查看变更。
 
-_暂无文档，欢迎成为第一篇的贡献者。_
+- [米拉空间数字生命演化](07-projects/2026-08-14-米拉空间数字生命演化.md) — MiraSpace 项目总览（2026-08-14）
+- [MiraSpace 科学阶段路线图](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md) — P0 + S1–S5 科学阶段（2026-08-14）
+- [MiraSpace 阶段 0 规划](07-projects/2026-08-14-MiraSpace-阶段0-空域坐标与观察者.md) — P0 + S1 实现规格（2026-08-14）
