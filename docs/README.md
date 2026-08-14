@@ -59,4 +59,5 @@ docs/
 
 - [米拉空间数字生命演化](07-projects/2026-08-14-米拉空间数字生命演化.md) — MiraSpace 项目总览（2026-08-14）
 - [MiraSpace 科学阶段路线图](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md) — P0 + S1–S5 科学阶段（2026-08-14）
-- [MiraSpace S2 达尔文阈值](07-projects/2026-08-14-MiraSpace-S2-达尔文阈值.md) — 复制子与 S2 指标（2026-08-14）
+- [MiraSpace S3 原细胞](07-projects/2026-08-14-MiraSpace-S3-个体化与原细胞.md) — vesicle/compartment（2026-08-14）
+- [MiraSpace S2 验收门槛](07-projects/2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md) — S2→S3 判定（2026-08-14）

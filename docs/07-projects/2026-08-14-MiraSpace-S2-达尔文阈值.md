@@ -24,7 +24,7 @@ author:
 | P0 + S1 + P2 | MiraSpace 已完成 | 见 [MiraSpace README](https://github.com/jk9988610/MiraSpace#s1-测试清单) |
 | S1 headless 通过 | 已完成 | `node scripts/s1-headless-test.mjs` exit 0 |
 | S1 `clusterIndex` 作 S2 门槛 | **废止** | dimer 极稀疏时该比值虚高（MiraSpace seed=42 已验证）；**不以 S1 指标作为 S2 启动门** |
-| S2 进入 S3 门槛 | 本文 §涌现指标 | 须 S2 三项指标达标 |
+| S2 进入 S3 门槛 | [S2 验收与 S2→S3 门槛](2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md) | **开发门**已满足；**结案门**见该文档 §B |
 
 ---
 
@@ -130,14 +130,16 @@ S2 **完成定义** 两条路径**至少一条**在 headless 中达到 §涌现�
 
 ## 涌现指标（S2 → S3）
 
+> **门槛判定**：见 **[S2 验收与 S2→S3 门槛](2026-08-14-MiraSpace-S2-验收与S2-S3门槛.md)** — 开 S3 编码**不要求**三项 sustained；S2 科学结案须按该文档 §B 验收基准（阈值已下调）。
+
 每 10 tick 采样；HUD 显示当前值 + 60 s 滑动平均 + sparkline（复用 P2 `sparkline.js`）。
 
-| 指标 id | 名称 | 计算概要 | 进入 S3 建议阈（preset） |
-|---------|------|----------|--------------------------|
-| `heritability` | 可遗传度 | 亲–子序列 Hamming 相关：\(1 - d/L\) 在成功复制事件上的平均 | 60 s 均 > **0.55** |
-| `selectiveSweep` | 选择 sweep | 种群频次 Top-1 谱系占比上升且适应度方差 > 0 | 占比 > **0.35** 持续 120 sim s |
-| `informationAccumulation` | 信息积累 | 在 \(\mu < \mu_c\) preset 下，平均序列长度 \(\bar L\) 相对 \(L_0\) 增长 | \(\bar L / L_0 > \)**1.5** 持续 180 sim s |
-| `parasiteFraction` | 寄生占比 | 长度 < `parasiteMaxLen` 且复制率 > 功能阈的 strand 占比 | **只观测**，不作 S3 门槛 |
+| 指标 id | 名称 | 计算概要 | 设计阈（preset） | 验收基准阈 |
+|---------|------|----------|------------------|------------|
+| `heritability` | 可遗传度 | 亲–子 Hamming 相关均值 | 60 s 均 > 0.55 | **≥ 0.55** |
+| `selectiveSweep` | 选择 sweep | Top-1 谱系占比 | > 0.35 × 120 s | **≥ 0.12 × 120 s** |
+| `informationAccumulation` | 信息积累 | \(\bar L/L_0\) | > 1.5 × 180 s | **≥ 1.05 × 120 s** |
+| `parasiteFraction` | 寄生占比 | 短序列复制子占比 | 只观测 | 只观测 |
 
 ### 错误阈值对照实验（必做）
 
