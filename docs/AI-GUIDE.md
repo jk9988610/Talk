@@ -9,7 +9,7 @@
 | **Talk**（本仓库） | 想法文档仓库 | 记录构想、讨论、方法论、写作 | 不维护产品代码、不部署交互原型 |
 | **[CivSlice](https://github.com/jk9988610/CivSlice)** | 孵化实现仓库 | 十维历史可视化站点与数据 | 不回写构想讨论到实现层 unless 用户要求 |
 | **[MiraSpace](https://github.com/jk9988610/MiraSpace)** | 孵化实现仓库 | 米拉空间数字生命 Canvas 模拟 | 不回写构想讨论到实现层 unless 用户要求 |
-| **PersonalStock**（待建实现仓） | 孵化实现仓库 | 个人库存微信小程序（Termux 预览流水线） | 提示词见 [PersonalStock Agent 实现提示词](07-projects/2026-08-18-PersonalStock-Agent实现提示词.md) |
+| **[MyInventory](https://github.com/jk9988610/MyInventory)** | 孵化实现仓库 | 个人库存微信小程序（Termux 预览流水线） | 提示词见 [MyInventory Agent 实现提示词](07-projects/2026-08-18-MyInventory-Agent实现提示词.md) |
 
 **原则**：Talk 写「为什么、是什么、怎么做」；CivSlice / MiraSpace 写「做出来」。
 

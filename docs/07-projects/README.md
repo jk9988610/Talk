@@ -22,7 +22,7 @@
 ### 微信小程序 · Termux 平板交付
 
 - [2026-08-18 微信小程序 Termux 平板开发落实规划](2026-08-18-微信小程序-Termux平板开发落实规划.md) — 环境可行性、MVP 范围、阶段里程碑、Termux 脚本与盈利挂钩
-- [2026-08-18 PersonalStock Agent 实现提示词](2026-08-18-PersonalStock-Agent实现提示词.md) — **完整/缩短版 Agent 提示词 + 一句话指导**（复制到新实现仓使用）
+- [2026-08-18 MyInventory Agent 实现提示词](2026-08-18-MyInventory-Agent实现提示词.md) — **MyInventory 仓一句话指导**（Agent 自行同步 Talk 文档并实现 MVP）
 
 ### MiraSpace（米拉空间 · 数字生命演化）
 
