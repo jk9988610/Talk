@@ -1,60 +1,60 @@
 ---
-title: PersonalStock Agent 实现提示词（个人库存 · 微信小程序）
+title: MyInventory Agent 实现提示词（个人库存 · 微信小程序）
 category: projects
-tags: [PersonalStock, 微信小程序, Agent, 提示词, 个人库存, Termux]
+tags: [MyInventory, 微信小程序, Agent, 提示词, 个人库存, Termux]
 status: active
 created: 2026-08-18
 updated: 2026-08-18
 author:
 ---
 
-# PersonalStock Agent 实现提示词
+# MyInventory Agent 实现提示词
 
-> **父文档**：[微信小程序 Termux 平板开发落实规划](2026-08-18-微信小程序-Termux平板开发落实规划.md)
+> **父文档**：[微信小程序 Termux 平板开发落实规划](2026-08-18-微信小程序-Termux平板开发落实规划.md)  
+> **实现仓库**：[MyInventory](https://github.com/jk9988610/MyInventory)
 
-本文档供 **产品实现仓库**（如 `PersonalStock`）中的 Cursor Agent 使用。Talk 仓库只存提示词与规划，不写产品代码。
-
----
-
-## 一句话指导（复制到新仓库 Agent 对话）
-
-在新仓库 Cursor Agent 中**只发这一句**即可：
-
-```
-请阅读并严格执行 Talk 仓库文档 docs/07-projects/2026-08-18-PersonalStock-Agent实现提示词.md（GitHub: https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-18-PersonalStock-Agent实现提示词.md）；若无法访问外链，请先让我把该文件复制到本仓 docs/REFERENCE-AGENT-PROMPT.md 后再读。从「完整版提示词」阶段 1 开始实现个人库存微信小程序 MVP。
-```
-
-若新仓已把本文复制为 `docs/REFERENCE-AGENT-PROMPT.md`，可改用更短一句：
-
-```
-请阅读本仓库 docs/REFERENCE-AGENT-PROMPT.md 中的「完整版提示词」，从阶段 1 开始实现。
-```
+本文档供 **MyInventory** 实现仓中的 Cursor Agent 使用。Talk 仓库只存提示词与规划，不写产品代码。
 
 ---
 
-## 使用说明
+## 一句话指导（复制到 MyInventory 仓库 Agent 对话）
+
+在 **MyInventory** 仓库 Cursor Agent 中**只发这一句**即可；**无需**你手动复制任何文档，由 Agent 完成同步与后续全部实现：
+
+```
+本仓库为 MyInventory 实现仓。请先自行从 Talk 获取规范写入 docs/REFERENCE-AGENT-PROMPT.md 与 docs/REFERENCE-PLAN.md，再按缩短版提示词从阶段 0 推进至 MVP 验收，后续全程由你完成。
+```
+
+Talk 源文档地址（供 Agent 拉取）：
+
+- https://raw.githubusercontent.com/jk9988610/Talk/main/docs/07-projects/2026-08-18-MyInventory-Agent实现提示词.md
+- https://raw.githubusercontent.com/jk9988610/Talk/main/docs/07-projects/2026-08-18-微信小程序-Termux平板开发落实规划.md
+
+---
+
+## 使用说明（用户侧）
 
 | 步骤 | 操作 |
 |------|------|
-| 1 | 新建 GitHub 实现仓（建议名 `PersonalStock`） |
-| 2 | （推荐）将本文 **「完整版提示词」** 整段复制到新仓 `docs/REFERENCE-AGENT-PROMPT.md`，避免 Agent 读不到 GitHub |
-| 3 | 在 Cursor 打开新仓，发送上方 **一句话指导** |
-| 4 | 本地填写 README 中的 `WECHAT_APPID`、密钥路径、云环境 ID |
+| 1 | 已建 GitHub 仓 **[MyInventory](https://github.com/jk9988610/MyInventory)**，用 Cursor 打开 |
+| 2 | 发送上方 **一句话指导** |
+| 3 | Agent 负责：拉取 Talk 文档 → 写入本仓 `docs/` → 按缩短版实现 MVP |
+| 4 | 你仅在需要时填写 `WECHAT_APPID`、密钥路径、云环境 ID（README 会说明） |
 
-**缩短版**（仅小程序、一周内跑通 preview）见本文 §缩短版提示词；一句话指导改为「读本文 §缩短版提示词」即可。
+**完整版**（含可选网页管理端）见本文 §完整版提示词；默认走 **§缩短版提示词**（仅小程序）。
 
 ---
 
 ## 完整版提示词
 
-以下整段可复制到新仓库 Agent，或存入 `docs/REFERENCE-AGENT-PROMPT.md`。
+以下整段供 Agent 同步进 `docs/REFERENCE-AGENT-PROMPT.md` 时保留，或作为完整版任务说明。
 
 ```
 # 项目任务：个人库存管理（微信小程序 + 网页 + 微信云开发）
 
 ## 你的角色
 
-你是本仓库的实现 Agent。请**先阅读外部参考文档**，再在本仓库落地代码、脚本与文档。本仓库是**产品实现仓**，不是想法文档仓。
+你是本仓库（MyInventory）的实现 Agent。请**先阅读外部参考文档**，再在本仓库落地代码、脚本与文档。本仓库是**产品实现仓**，不是想法文档仓。
 
 ## 必读外部参考（Talk 仓库）
 
@@ -217,26 +217,38 @@ author:
 
 ---
 
-## 缩短版提示词
+## 缩短版提示词（MyInventory 默认路径）
 
-仅 **微信小程序 + 云开发**，无网页；适合一周内跑通 `preview`。一句话指导：
-
-```
-请阅读 Talk 仓库 docs/07-projects/2026-08-18-PersonalStock-Agent实现提示词.md 的「缩短版提示词」章节（或本仓 docs/REFERENCE-AGENT-PROMPT.md 同章节），从阶段 1 开始实现。
-```
+仅 **微信小程序 + 云开发**，无网页。Agent 同步文档后按本段执行。
 
 ```
-# 任务：个人库存管理微信小程序 MVP（仅小程序，无网页）
+# 任务：MyInventory 个人库存管理微信小程序 MVP（仅小程序，无网页）
 
 ## 角色
 
-你是实现 Agent。先读参考文档，再在本仓库写代码。本仓是产品实现仓。
+你是 MyInventory 实现仓的 Agent。先完成阶段 0 同步 Talk 文档，再在本仓库写代码。
+
+## 阶段 0（用户未复制文档，必须由你完成）
+
+用户**不会**手动从 Talk 复制文件。你必须：
+
+1. 从 Talk 获取以下源文件**全文**（优先 `raw.githubusercontent.com`，其次 GitHub API / 页面抓取）：
+   - `docs/07-projects/2026-08-18-MyInventory-Agent实现提示词.md`
+     → 写入本仓 `docs/REFERENCE-AGENT-PROMPT.md`
+   - `docs/07-projects/2026-08-18-微信小程序-Termux平板开发落实规划.md`
+     → 写入本仓 `docs/REFERENCE-PLAN.md`
+2. 在每个 REFERENCE 文件顶部注明：源仓库 Talk、源路径、同步日期、raw URL。
+3. 提交 git：`docs: 从 Talk 同步参考文档`。
+4. 若暂时无法访问 GitHub：在 README 写明阻塞原因与所需 raw URL，并**仅**向用户索要粘贴内容，不要假设用户会主动复制。
+
+完成阶段 0 后，继续阅读 `docs/REFERENCE-PLAN.md` 与本缩短版内容，从阶段 1 推进。
 
 ## 必读参考
 
-https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-18-微信小程序-Termux平板开发落实规划.md
+- 本仓 `docs/REFERENCE-PLAN.md`（Termux 流水线、云开发选型）
+- Talk：https://github.com/jk9988610/Talk/blob/main/docs/07-projects/2026-08-18-微信小程序-Termux平板开发落实规划.md
 
-将其中「小仓库存」改为 **个人家用库存**（单用户自用）。**不要**做网页管理端、不要 uni-app/Taro、不要自建服务器。
+将规划中「小仓库存」改为 **个人家用库存**（单用户自用）。**不要**做网页管理端、不要 uni-app/Taro、不要自建服务器。
 
 ## 环境约束（必须遵守）
 
@@ -270,6 +282,8 @@ scripts/preview.sh
 scripts/upload.sh
 docs/DATA-MODEL.md
 docs/SMOKE-TEST.md
+docs/REFERENCE-AGENT-PROMPT.md   # 阶段 0 写入
+docs/REFERENCE-PLAN.md           # 阶段 0 写入
 project.config.json
 package.json
 .gitignore
@@ -285,6 +299,7 @@ README.md
 
 ## 交付顺序（按序提交）
 
+0. 从 Talk 同步 REFERENCE 文档（见阶段 0）。
 1. 骨架 + `preview.sh` 能预览空白页 + README（Termux 步骤）。
 2. 物品 CRUD + 列表。
 3. 入库/出库 + 首页概览/低库存。
@@ -301,7 +316,7 @@ WECHAT_APPID=【待填】
 WECHAT_PRIVATE_KEY_PATH=【待填】
 云环境 ID=【待填】
 
-请先输出 5 步计划，然后从阶段 1 开始实现。
+请先输出 6 步计划（含阶段 0），然后从阶段 0 开始实现；阶段 0 完成后无需等待用户确认，连续推进至 MVP 验收。
 ```
 
 ---
@@ -310,6 +325,7 @@ WECHAT_PRIVATE_KEY_PATH=【待填】
 
 | 天 | 目标 |
 |----|------|
+| 0 | Agent 同步 Talk → `docs/REFERENCE-*` |
 | 1 | 注册小程序、云开发、密钥；阶段 1，`preview` 空白页 |
 | 2～3 | 阶段 2 物品 CRUD |
 | 4～5 | 阶段 3 出入库 + 首页 |
@@ -323,3 +339,4 @@ WECHAT_PRIVATE_KEY_PATH=【待填】
 | 版本 | 日期 | 说明 |
 |------|------|------|
 | v1.0 | 2026-08-18 | 完整版 + 缩短版提示词 + 一句话指导 |
+| v1.1 | 2026-08-18 | 仓库更名为 MyInventory；阶段 0 由 Agent 同步 Talk 文档 |
