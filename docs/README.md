@@ -57,6 +57,8 @@ docs/
 
 > 在此手动维护最近发布的文档链接，或依赖 Git 历史查看变更。
 
+- [PixPack 素材工坊项目总览](07-projects/2026-08-19-PixPack-素材工坊项目总览.md) — PixiJS + Supabase + Pack 加载 B 方案（2026-08-19）
+- [PixPack Agent 实现提示词](07-projects/2026-08-19-PixPack-Agent实现提示词.md) — 新仓库一句话指导（2026-08-19）
 - [米拉空间数字生命演化](07-projects/2026-08-14-米拉空间数字生命演化.md) — MiraSpace 项目总览（2026-08-14）
 - [MiraSpace 科学阶段路线图](07-projects/2026-08-14-MiraSpace-科学阶段路线图.md) — P0 + S1–S5 科学阶段（2026-08-14）
 - [MiraSpace 初心与设计理念](07-projects/2026-08-14-MiraSpace-项目初心与设计理念.md)（2026-08-14）

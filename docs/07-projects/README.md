@@ -19,6 +19,11 @@
 
 ## 文档列表
 
+### PixPack（素材工坊 · PixiJS + Supabase）
+
+- [2026-08-19 PixPack 素材工坊项目总览](2026-08-19-PixPack-素材工坊项目总览.md) — Pack 架构、加载 B 方案、Supabase、MVP 规格
+- [2026-08-19 PixPack Agent 实现提示词](2026-08-19-PixPack-Agent实现提示词.md) — **PixPack 仓一句话指导**（Agent 自行同步 Talk 文档并实现 MVP）
+
 ### 微信小程序 · Termux 平板交付
 
 - [2026-08-18 微信小程序 Termux 平板开发落实规划](2026-08-18-微信小程序-Termux平板开发落实规划.md) — 环境可行性、MVP 范围、阶段里程碑、Termux 脚本与盈利挂钩
