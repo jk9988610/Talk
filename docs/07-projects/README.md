@@ -19,6 +19,11 @@
 
 ## 文档列表
 
+### Regional-facial-variations（区域地理可视化 · MapLibre + Pages）
+
+- [2026-08-22 Regional-facial-variations 区域地理可视化](2026-08-22-Regional-facial-variations-区域地理可视化.md) — 精选十国、省/州划分、开源低成本地图方案
+- [2026-08-22 Regional-facial-variations Agent 实现提示词](2026-08-22-Regional-facial-variations-Agent实现提示词.md) — **Regional-facial-variations 仓一句话指导**
+
 ### PixPack（素材工坊 · PixiJS + Supabase）
 
 - [2026-08-19 PixPack 素材工坊项目总览](2026-08-19-PixPack-素材工坊项目总览.md) — Pack 架构、加载 B 方案、Supabase、MVP 规格
