@@ -14,22 +14,58 @@ const categories = [
 
 const projects = [
   {
-    name: 'MiraSpace',
-    subtitle: '米拉空间 · 数字生命演化',
-    desc: '涌现式数字生物模拟：按科学阶段 P0→S1→…→S5（非 RNA/DNA 线性），从远离平衡态底物到多细胞。',
-    ideaDoc: 'docs/07-projects/2026-08-14-米拉空间数字生命演化.md',
-    repo: 'https://github.com/jk9988610/MiraSpace',
-    pages: 'https://jk9988610.github.io/MiraSpace/',
-    status: '规划中',
-  },
-  {
     name: 'CivSlice',
-    subtitle: '文明切片 · 十维历史可视化',
-    desc: '科学方法驱动的文明历史多维探索，含时间线交互原型。从本仓库项目构想孵化。',
+    subtitle: '文明切片 · 历史可视化',
+    desc: '证据驱动、十维（aspect）文明快照；区域→时段→泳道→比较导航。',
     ideaDoc: 'docs/07-projects/2026-08-12-多维文明历史可视化.md',
     repo: 'https://github.com/jk9988610/CivSlice',
     pages: 'https://jk9988610.github.io/CivSlice/',
     status: '已部署',
+  },
+  {
+    name: 'MiraSpace',
+    subtitle: '米拉空间 · 数字生命演化',
+    desc: '涌现式 Canvas 模拟：P0→S5 科学阶段已闭合；地球生态基因表达规划中。',
+    ideaDoc: 'docs/07-projects/2026-08-14-米拉空间数字生命演化.md',
+    repo: 'https://github.com/jk9988610/MiraSpace',
+    pages: 'https://jk9988610.github.io/MiraSpace/',
+    status: '已部署',
+  },
+  {
+    name: 'PixPack',
+    subtitle: '素材工坊 · PixiJS + Supabase',
+    desc: '网页像素精灵工具：Pack 加载、画室 9×9、云端素材库。',
+    ideaDoc: 'docs/07-projects/2026-08-19-PixPack-素材工坊项目总览.md',
+    repo: 'https://github.com/jk9988610/PixPack',
+    pages: 'https://jk9988610.github.io/PixPack/',
+    status: '已部署',
+  },
+  {
+    name: 'MiraTown',
+    subtitle: '米拉小镇 · DSL 演绎游戏',
+    desc: 'AI 写剧本、引擎精确执行；地图编辑器 + Gate 0–3 已闭合。',
+    ideaDoc: 'docs/07-projects/2026-08-22-MiraTown-米拉小镇项目总览.md',
+    repo: 'https://github.com/jk9988610/MiraTown',
+    pages: 'https://jk9988610.github.io/MiraTown/',
+    status: '已部署',
+  },
+  {
+    name: '征服三国',
+    subtitle: 'TCG 卡牌框架',
+    desc: '标准 TCG 尺寸、像素卡面、商店与战场拖拽；吕布等角色可玩。',
+    ideaDoc: 'docs/07-projects/2026-08-22-征服三国-TCG卡牌框架总览.md',
+    repo: 'https://github.com/jk9988610/Conquer-the-Three-Kingdoms',
+    pages: 'https://jk9988610.github.io/Conquer-the-Three-Kingdoms/',
+    status: '已部署',
+  },
+  {
+    name: 'MyInventory',
+    subtitle: '个人库存 · 微信小程序',
+    desc: 'Termux + miniprogram-ci 流水线；微信云开发 MVP 待实现。',
+    ideaDoc: 'docs/07-projects/2026-08-18-MyInventory-Agent实现提示词.md',
+    repo: 'https://github.com/jk9988610/MyInventory',
+    pages: null,
+    status: '规划中',
   },
 ];
 
@@ -44,7 +80,11 @@ function renderCategories() {
 }
 
 function renderProjects() {
-  document.getElementById('projects').innerHTML = projects.map((p) => `
+  document.getElementById('projects').innerHTML = projects.map((p) => {
+    const pagesLink = p.pages
+      ? `<a href="${p.pages}">Pages</a><span class="sep">·</span>`
+      : '';
+    return `
     <article class="card project-card">
       <h3>${p.name}</h3>
       <p class="project-sub">${p.subtitle}</p>
@@ -54,11 +94,12 @@ function renderProjects() {
         <span class="sep">·</span>
         <a href="${p.repo}">仓库</a>
         <span class="sep">·</span>
-        <a href="${p.pages}">Pages</a>
+        ${pagesLink}
         <span class="badge">${p.status}</span>
       </div>
     </article>
-  `).join('');
+  `;
+  }).join('');
 }
 
 renderCategories();

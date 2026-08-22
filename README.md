@@ -16,7 +16,7 @@
 | 💬 开放讨论 | 待探讨的议题与命题 | [docs/08-discussions](docs/08-discussions/) |
 | 📦 归档 | 已完结或不再维护的内容 | [docs/99-archive](docs/99-archive/) |
 
-完整索引见 [docs/README.md](docs/README.md)。
+完整索引见 [docs/README.md](docs/README.md)。**全部 GitHub 仓库导航**见 [作品仓库总览](docs/07-projects/2026-08-22-作品仓库总览与导航.md)。
 
 **文档门户**：[jk9988610.github.io/Talk](https://jk9988610.github.io/Talk/)（GitHub Pages 导航页）
 

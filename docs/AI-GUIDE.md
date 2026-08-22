@@ -6,10 +6,15 @@
 
 | 仓库 | 角色 | 做什么 | 不做什么 |
 |------|------|--------|----------|
-| **Talk**（本仓库） | 想法文档仓库 | 记录构想、讨论、方法论、写作 | 不维护产品代码、不部署交互原型 |
+| **Talk**（本仓库） | 想法文档仓库 | 记录构想、讨论、方法论、写作、**作品集导航** | 不维护产品代码、不部署交互原型 |
 | **[CivSlice](https://github.com/jk9988610/CivSlice)** | 孵化实现仓库 | 十维历史可视化站点与数据 | 不回写构想讨论到实现层 unless 用户要求 |
 | **[MiraSpace](https://github.com/jk9988610/MiraSpace)** | 孵化实现仓库 | 米拉空间数字生命 Canvas 模拟 | 不回写构想讨论到实现层 unless 用户要求 |
-| **[MyInventory](https://github.com/jk9988610/MyInventory)** | 孵化实现仓库 | 个人库存微信小程序（Termux 预览流水线） | 提示词见 [MyInventory Agent 实现提示词](07-projects/2026-08-18-MyInventory-Agent实现提示词.md) |
+| **[PixPack](https://github.com/jk9988610/PixPack)** | 孵化实现仓库 | PixiJS 素材工坊 + Supabase | 提示词见 [PixPack Agent](07-projects/2026-08-19-PixPack-Agent实现提示词.md) |
+| **[MiraTown](https://github.com/jk9988610/MiraTown)** | 孵化实现仓库 | DSL 剧本演绎 + 地图编辑器 | 权威规格在 MiraTown `docs/` |
+| **[MyInventory](https://github.com/jk9988610/MyInventory)** | 孵化实现仓库 | 个人库存微信小程序（Termux 预览流水线） | 提示词见 [MyInventory Agent](07-projects/2026-08-18-MyInventory-Agent实现提示词.md) |
+| **[Conquer-the-Three-Kingdoms](https://github.com/jk9988610/Conquer-the-Three-Kingdoms)** | 关联实现仓库 | TCG 卡牌框架（L2，未正式孵化） | 总览见 [征服三国 TCG](07-projects/2026-08-22-征服三国-TCG卡牌框架总览.md) |
+
+**作品集全览**：[作品仓库总览与导航](07-projects/2026-08-22-作品仓库总览与导航.md)
 
 **原则**：Talk 写「为什么、是什么、怎么做」；CivSlice / MiraSpace 写「做出来」。
 
@@ -604,7 +609,7 @@ MiraSpace/
 | **数据规范 v3** | 证据驱动标准、AI-GUIDE 禁止事项、时代模板定位、CivSlice schema |
 | 十维 / aspect 框架调整 | 项目总览、数据规范、CivSlice 数据文件 |
 | 科学方法原则 | AI-GUIDE、数据规范、CivSlice 侧栏文案 |
-| 新孵化项目 | Talk `site/app.js` 的 projects 列表、07-projects README |
+| 新孵化项目 | Talk `site/app.js` 的 projects 列表、07-projects README、[作品仓库总览](07-projects/2026-08-22-作品仓库总览与导航.md) |
 | MiraSpace 阶段规格 | 项目总览、AI-GUIDE 阶段表、MiraSpace preset JSON |
 | 维基/讨论新启发 | 08-discussions 归档 + 数据规范补充 |
 
